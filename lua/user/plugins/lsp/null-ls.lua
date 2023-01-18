@@ -17,6 +17,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		formatting.stylua,
+		formatting.eslint_d,
 		formatting.trim_whitespace,
 		formatting.trim_newlines,
     diagnostics.eslint_d,
@@ -27,7 +28,6 @@ null_ls.setup({
 		diagnostics.tidy,
 		diagnostics.todo_comments,
 		diagnostics.trail_space,
-    --[[ completion.spell, ]]
     completion.luasnip,
     completion.tags,
 	},

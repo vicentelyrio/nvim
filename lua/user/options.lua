@@ -1,50 +1,123 @@
--- :help options
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-----------------------------------------------------------
+-- General Neovim settings and configuration
+-----------------------------------------------------------
 
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+-- Default options are not included
+-- See: https://neovim.io/doc/user/vim_diff.html
+-- [2] Defaults - *nvim-defaults*
 
-vim.opt.backup = false                          -- creates a backup file
-vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0                           -- more space in the neovim command line for displaying messages
-vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
-vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
-vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
-vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
-vim.opt.ignorecase = true                       -- ignore case in search patterns
-vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10                          -- pop up menu height
-vim.opt.showmode = true                         -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 1                         -- hide tabline
-vim.opt.smartcase = true                        -- smart case
-vim.opt.smartindent = true                      -- make indenting smarter again
-vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
-vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
-vim.opt.swapfile = false                        -- creates a swapfile
-vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.undofile = true                         -- enable persistent undo
-vim.opt.updatetime = 300                        -- faster completion (4000ms default)
-vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
-vim.opt.cursorline = true                       -- highlight the current line
-vim.opt.colorcolumn = "1"
-vim.opt.number = true                           -- set numbered lines
-vim.opt.relativenumber = true                   -- set relative numbered lines
-vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
-vim.opt.sidescrolloff = 8
-vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+local g = vim.g       -- Global variables
+local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 
-vim.opt.shortmess:append "c"
+-----------------------------------------------------------
+-- General
+-----------------------------------------------------------
+opt.mouse = 'a'                       -- Enable mouse support
+opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
+opt.swapfile = false                  -- Don't use swapfile
+opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+opt.timeoutlen = 1000                 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.undofile = true                   -- enable persistent undo
+opt.backup = false                    -- creates a backup file
+opt.writebackup = false               -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
+-----------------------------------------------------------
+-- Neovim UI
+-----------------------------------------------------------
+opt.cmdheight = 0           -- Hide command line
+opt.number = true           -- Show line number
+opt.relativenumber = true   -- set relative numbered lines
+opt.numberwidth = 3         -- set number column width {default 4}
+opt.showmatch = true        -- Highlight matching parenthesis
+opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
+opt.splitright = true       -- Vertical split to the right
+opt.splitbelow = true       -- Horizontal split to the bottom
+opt.ignorecase = true       -- Ignore case letters when search
+opt.smartcase = true        -- Ignore lowercase for the whole pattern
+opt.linebreak = true        -- Wrap on word boundary
+opt.wrap = false            -- display lines as one long line
+opt.termguicolors = true    -- Enable 24-bit RGB colors
+opt.laststatus = 3          -- Set global statusline
+opt.conceallevel = 0        -- so that `` is visible in markdown files
+opt.fileencoding = "utf-8"  -- the encoding written to a file
+opt.hlsearch = true         -- highlight all matches on previous search pattern
+opt.pumheight = 10          -- pop up menu height
+opt.showmode = true         -- show what mode we are
+opt.showtabline = 1         -- hide tabline
+opt.updatetime = 300        -- faster completion (4000ms default)
+opt.cursorline = true       -- highlight the current line
+opt.signcolumn = "yes"      -- always show the sign column, otherwise it would shift the text each time
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.guifont = "monospace:h17"
+
+-----------------------------------------------------------
+-- Fold
+-----------------------------------------------------------
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+
+-----------------------------------------------------------
+-- Tabs, indent
+-----------------------------------------------------------
+opt.expandtab = true        -- Use spaces instead of tabs
+opt.shiftwidth = 2          -- Shift 2 spaces when tab
+opt.tabstop = 2             -- 1 tab == 2 spaces
+opt.smartindent = true      -- Autoindent new lines
+
+-----------------------------------------------------------
+-- Memory, CPU
+-----------------------------------------------------------
+opt.hidden = true           -- Enable background buffers
+opt.history = 100           -- Remember N lines in history
+opt.lazyredraw = true       -- Faster scrolling
+opt.synmaxcol = 240         -- Max column for syntax highlight
+opt.updatetime = 250        -- ms to wait for trigger an event
+
+-----------------------------------------------------------
+-- Startup
+-----------------------------------------------------------
+-- Disable nvim intro
+opt.shortmess:append "sI"
+
+-- -- Disable builtin plugins
+--[[ local disabled_built_ins = { ]]
+--[[    "2html_plugin", ]]
+--[[    "getscript", ]]
+--[[    "getscriptPlugin", ]]
+--[[    "gzip", ]]
+--[[    "logipat", ]]
+--[[    "netrw", ]]
+--[[    "netrwPlugin", ]]
+--[[    "netrwSettings", ]]
+--[[    "netrwFileHandlers", ]]
+--[[    "matchit", ]]
+--[[    "tar", ]]
+--[[    "tarPlugin", ]]
+--[[    "rrhelper", ]]
+--[[    "spellfile_plugin", ]]
+--[[    "vimball", ]]
+--[[    "vimballPlugin", ]]
+--[[    "zip", ]]
+--[[    "zipPlugin", ]]
+--[[    "tutor", ]]
+--[[    "rplugin", ]]
+--[[    "synmenu", ]]
+--[[    "optwin", ]]
+--[[    "compiler", ]]
+--[[    "bugreport", ]]
+--[[    "ftplugin", ]]
+--[[ } ]]
+--[[]]
+--[[ for _, plugin in pairs(disabled_built_ins) do ]]
+--[[    g["loaded_" .. plugin] = 1 ]]
+--[[ end ]]
+
+-----------------------------------------------------------
+-- Commands
+-----------------------------------------------------------
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=r formatoptions-=c formatoptions-=o]]

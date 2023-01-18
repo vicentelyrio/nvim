@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local expr_opts = { noremap = true, expr = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -33,14 +34,14 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 -- Last Opened buffers
 keymap("n", "<leader>t", ":MementoToggle<CR>", opts)
 
--- Code Folding
+-- Highlight
+keymap('n', '<leader>h', ":nohlsearch<CR>", opts)
+keymap('n', '<leader>n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', '<leader>N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
 
---[[ keymap('n', 'zR', require('ufo').openAllFolds) ]]
---[[ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds) ]]
-
--- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("t", "jk", "<C-\\><C-n>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -50,6 +51,8 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+
+-- Paste and keep register
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
