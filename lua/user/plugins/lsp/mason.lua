@@ -2,7 +2,6 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
-	"sumneko_lua",
 	"bashls",
 	"jsonls",
 	"yamlls",

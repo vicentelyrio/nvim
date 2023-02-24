@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }        -- Theme
   use "nvim-tree/nvim-web-devicons"                   -- Icons
   use "norcalli/nvim-colorizer.lua"                   -- Colorize color values
-  use "karb94/neoscroll.nvim"                         -- Smooth scrolling
+  --[[ use "karb94/neoscroll.nvim"                         -- Smooth scrolling ]]
   use "petertriho/nvim-scrollbar"                     -- Scrollbar feedback
   use "ghillb/cybu.nvim"                              -- Buffer navigation with preview
   use "famiu/bufdelete.nvim"                          -- Buffer close improved
@@ -87,7 +87,7 @@ return packer.startup(function(use)
 
   -- Snippets
   use "L3MON4D3/LuaSnip"                              -- snippet engine
-  use "rafamadriz/friendly-snippets"                  -- a bunch of snippets to use
+  --[[ use "rafamadriz/friendly-snippets"                  -- a bunch of snippets to use ]]
 
 	-- LSP
   use "neovim/nvim-lspconfig"                         -- LSP
@@ -104,7 +104,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"                          -- Pair parenthesis and curly braces
+  --[[ use "p00f/nvim-ts-rainbow"                          -- Pair parenthesis and curly braces ]]
   use {                                               -- Dim unused vars
     "zbirenbaum/neodim",
     event = "LspAttach"

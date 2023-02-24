@@ -149,11 +149,6 @@ _G.packer_plugins = {
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["git-conflict.nvim"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
@@ -190,11 +185,6 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/opt/neodim",
     url = "https://github.com/zbirenbaum/neodim"
-  },
-  ["neoscroll.nvim"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
-    url = "https://github.com/karb94/neoscroll.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -245,11 +235,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
-  },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-ufo"] = {
     loaded = true,
