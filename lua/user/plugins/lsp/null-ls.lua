@@ -17,10 +17,10 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		formatting.stylua,
-		formatting.eslint_d,
+		--[[ formatting.eslint, ]]
 		formatting.trim_whitespace,
 		formatting.trim_newlines,
-    diagnostics.eslint_d,
+    --[[ diagnostics.eslint, ]]
     diagnostics.zsh,
 		diagnostics.shellcheck,
     diagnostics.dotenv_linter,
@@ -28,7 +28,7 @@ null_ls.setup({
 		diagnostics.tidy,
 		diagnostics.todo_comments,
 		diagnostics.trail_space,
-    completion.luasnip,
+    --[[ completion.luasnip, ]]
     completion.tags,
 	},
 })

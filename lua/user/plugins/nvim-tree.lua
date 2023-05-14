@@ -42,8 +42,7 @@ nvim_tree.setup {
     args = {},
   },
   filters = {
-    dotfiles = false,
-    custom = {},
+    dotfiles = true
   },
   git = {
     enable = true,
@@ -51,7 +50,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 30,
+    width = 40,
     hide_root_folder = false,
     side = "left",
     mappings = {

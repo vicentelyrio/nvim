@@ -295,11 +295,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
     url = "https://github.com/Pocco81/true-zen.nvim"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
   }
 }
 
