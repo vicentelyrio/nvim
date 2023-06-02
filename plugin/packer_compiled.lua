@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["git-conflict.nvim"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
@@ -158,11 +163,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["guihua.lua"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/guihua.lua",
-    url = "https://github.com/ray-x/guihua.lua"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -221,6 +221,16 @@ _G.packer_plugins = {
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
     url = "https://github.com/petertriho/nvim-scrollbar"
   },
+  ["nvim-spectre"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-spectre",
+    url = "https://github.com/nvim-pack/nvim-spectre"
+  },
+  ["nvim-surround"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -230,6 +240,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
@@ -266,11 +281,6 @@ _G.packer_plugins = {
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/promise-async",
     url = "https://github.com/kevinhwang91/promise-async"
   },
-  ["sad.nvim"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/sad.nvim",
-    url = "https://github.com/ray-x/sad.nvim"
-  },
   ["smart-splits.nvim"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/smart-splits.nvim",
@@ -295,6 +305,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
     url = "https://github.com/Pocco81/true-zen.nvim"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 

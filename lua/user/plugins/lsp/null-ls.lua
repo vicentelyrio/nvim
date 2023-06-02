@@ -15,20 +15,20 @@ local completion = null_ls.builtins.completion
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier,
-		formatting.stylua,
-		--[[ formatting.eslint, ]]
 		formatting.trim_whitespace,
 		formatting.trim_newlines,
-    --[[ diagnostics.eslint, ]]
+		formatting.gdformat,
+		formatting.tidy,
+
+    diagnostics.eslint_d.with({ filetypes = { "js", "jsx" } }),
     diagnostics.zsh,
 		diagnostics.shellcheck,
     diagnostics.dotenv_linter,
 		diagnostics.stylelint,
 		diagnostics.tidy,
-		diagnostics.todo_comments,
+		--[[ diagnostics.todo_comments, ]]
 		diagnostics.trail_space,
-    --[[ completion.luasnip, ]]
+
     completion.tags,
 	},
 })

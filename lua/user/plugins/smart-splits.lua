@@ -17,7 +17,7 @@ smart_splits.setup({
   -- whether to wrap to opposite side when cursor is at an edge
   -- e.g. by default, moving left at the left edge will jump
   -- to the rightmost window, and vice versa, same for up/down.
-  wrap_at_edge = true,
+  at_edge = 'wrap',
   -- when moving cursor between splits left or right,
   -- place the cursor on the same row of the *screen*
   -- regardless of line numbers. False by default.
@@ -50,5 +50,5 @@ smart_splits.setup({
     'WinEnter',
   },
   -- enable or disable the tmux integration
-  tmux_integration = true,
+  multiplexer_integration = 'tmux',
 })

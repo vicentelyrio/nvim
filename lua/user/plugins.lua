@@ -49,16 +49,12 @@ return packer.startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }        -- Theme
   use "nvim-tree/nvim-web-devicons"                   -- Icons
   use "norcalli/nvim-colorizer.lua"                   -- Colorize color values
-  --[[ use "karb94/neoscroll.nvim"                         -- Smooth scrolling ]]
   use "petertriho/nvim-scrollbar"                     -- Scrollbar feedback
   use "ghillb/cybu.nvim"                              -- Buffer navigation with preview
   use "famiu/bufdelete.nvim"                          -- Buffer close improved
   use "mrjones2014/smart-splits.nvim"                 -- Buffer Navigation
   use "feline-nvim/feline.nvim"                       -- Status Line
-  use {                                               -- Find & Replace
-    "ray-x/sad.nvim",
-    requires = "ray-x/guihua.lua"
-  }
+  use "nvim-pack/nvim-spectre"                        -- Find & Replace
   use "kevinhwang91/nvim-hlslens"                     -- search highlight
 
   -- File explorer
@@ -86,8 +82,11 @@ return packer.startup(function(use)
   use "David-Kunz/cmp-npm"                            -- npm completions
 
   -- Snippets
-  use "L3MON4D3/LuaSnip"                              -- snippet engine
-  --[[ use "rafamadriz/friendly-snippets"                  -- a bunch of snippets to use ]]
+  use {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  }
+  use "rafamadriz/friendly-snippets"
 
 	-- LSP
   use "neovim/nvim-lspconfig"                         -- LSP
@@ -104,21 +103,32 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  --[[ use "p00f/nvim-ts-rainbow"                          -- Pair parenthesis and curly braces ]]
-  use {                                               -- Dim unused vars
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+
+  -- Dim unused vars
+  use {
     "zbirenbaum/neodim",
     event = "LspAttach"
   }
-  use {                                               -- Code Folding
+
+  -- Code Folding
+  use {
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async"
   }
+
   -- Comments
   use "numToStr/Comment.nvim"
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
+  -- Text edition
+  use "kylechui/nvim-surround"
+
   -- Zen mode
   use "Pocco81/true-zen.nvim"
+
+  -- Multi cursor
+  use "mg979/vim-visual-multi"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
