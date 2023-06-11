@@ -94,6 +94,12 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"             -- LSP installer config
   use 'jose-elias-alvarez/null-ls.nvim'               -- LSP diagnostics and code actions
 
+  -- JSDOCS
+  use {
+    'heavenshell/vim-jsdoc',
+    run = 'make install'
+  }
+
   -- Languages Support
   use "sheerun/vim-polyglot"                          -- Syntax highlight for multiple languages
   use "gennaro-tedesco/nvim-jqx"                      -- JSON tools
@@ -133,6 +139,16 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "akinsho/git-conflict.nvim"
+
+  -- AI
+  use {
+    "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

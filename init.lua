@@ -24,6 +24,8 @@ require "user.plugins.smart-splits"
 require	"user.plugins.cybu"
 require	"user.plugins.feline"
 require	"user.plugins.ufo"
+require	"user.plugins.chatgpt"
+require	"user.plugins.vim-jsdocs"
 
 -- GIT
 require "user.plugins.gitsigns"

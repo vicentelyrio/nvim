@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["ChatGPT.nvim"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -185,6 +190,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/opt/neodim",
     url = "https://github.com/zbirenbaum/neodim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -305,6 +315,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
     url = "https://github.com/Pocco81/true-zen.nvim"
+  },
+  ["vim-jsdoc"] = {
+    loaded = true,
+    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-jsdoc",
+    url = "https://github.com/heavenshell/vim-jsdoc"
   },
   ["vim-polyglot"] = {
     loaded = true,
