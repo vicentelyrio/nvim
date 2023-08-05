@@ -3,6 +3,16 @@ if not status_ok then
   return
 end
 
+local code = {
+  select = {
+    fn_outer = 'af',
+    fn_inner = 'if',
+    class_outer = 'ac',
+    class_inner = 'ic',
+    lang = 'as',
+  },
+}
+
 configs.setup {
   ensure_installed = "all",
   sync_install = false,

@@ -338,11 +338,6 @@ _G.packer_plugins = {
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-jsdoc",
     url = "https://github.com/heavenshell/vim-jsdoc"
   },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
-  },
   ["vim-visual-multi"] = {
     loaded = true,
     path = "/Users/vicentelyrio/.local/share/nvim/site/pack/packer/start/vim-visual-multi",

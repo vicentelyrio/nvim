@@ -17,6 +17,8 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+local keys = require "user.keys"
+
 --   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",
@@ -54,20 +56,20 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-e>"] = cmp.mapping {
+    [keys.cmp.select_prev] = cmp.mapping.select_prev_item(),
+		[keys.cmp.select_next] = cmp.mapping.select_next_item(),
+    [keys.cmp.scroll_prev] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    [keys.cmp.scroll_next] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    [keys.cmp.complete] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    [keys.cmp.disable] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    [keys.cmp.abort] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = false },
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    [keys.cmp.select] = cmp.mapping.confirm { select = false },
+    [keys.cmp.cycle_next] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
@@ -83,7 +85,7 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    [keys.cmp.cycle_prev] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then

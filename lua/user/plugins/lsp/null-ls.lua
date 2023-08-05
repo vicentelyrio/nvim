@@ -3,13 +3,13 @@ if not null_ls_status_ok then
 	return
 end
 
---[[ https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting ]]
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 
---[[ https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics ]]
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
---[[ https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion ]]
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
 local completion = null_ls.builtins.completion
 
 null_ls.setup({
@@ -19,7 +19,7 @@ null_ls.setup({
 		formatting.trim_newlines,
 
     diagnostics.dotenv_linter,
-		diagnostics.stylelint,
+		diagnostics.stylint,
 		diagnostics.tidy,
 		diagnostics.tsc,
     diagnostics.standardjs,
@@ -27,6 +27,7 @@ null_ls.setup({
 		diagnostics.trail_space,
 
     completion.tags,
+    completion.spell,
 	},
 })
 
