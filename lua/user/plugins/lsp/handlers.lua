@@ -1,3 +1,14 @@
+local keys = require "user.keys"
+
+local mapKey = keys.mapKey
+local leaderKeys = keys.leaderKeys
+local superKeys = keys.superKeys
+local ctrlKeys = keys.ctrlKeys
+local altKeys = keys.altKeys
+local singleKeys = keys.singleKeys
+
+local keymap = vim.api.nvim_buf_set_keymap
+
 local M = {}
 
 M.setup = function()
@@ -61,28 +72,31 @@ end
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gD, "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gd, "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gi, "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gr, "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gl, '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
+  keymap(bufnr, "n", singleKeys.ga, "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gb, ":ToggleBlameLine<CR>", opts)
+  keymap(bufnr, "n", singleKeys.K, "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>sh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.gh, "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  keymap(bufnr, "n", singleKeys.bracketBack, '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+  keymap(bufnr, "n", singleKeys.bracketNext, '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  keymap(bufnr, "n", mapKey("<leader>%s", leaderKeys.q), "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  keymap(bufnr, "n", mapKey("<leader>%s", leaderKeys.br), "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  keymap(bufnr, "n", mapKey("<leader>%s", leaderKeys.fd), "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 M.on_attach = function(client, bufnr)
+  -- disable formatter for tsserver
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
   end
+
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end

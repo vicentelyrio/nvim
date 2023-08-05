@@ -1,10 +1,14 @@
 local servers = {
-	"cssls",
-	"html",
-	"tsserver",
 	"bashls",
 	"jsonls",
 	"yamlls",
+	"cssls",
+	"cssmodules_ls",
+	"tsserver",
+	"eslint",
+	"html",
+	"lua_ls",
+	"marksman",
 }
 
 local settings = {

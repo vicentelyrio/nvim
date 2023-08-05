@@ -11,6 +11,8 @@ require "user.plugins.treesitter"
 -- CODE
 require	"user.plugins.nvim-surround"
 require "user.plugins.comment"
+require	"user.plugins.vim-jsdocs"
+require	"user.plugins.chatgpt"
 
 -- UI
 require "user.plugins.colorscheme"
@@ -24,8 +26,6 @@ require "user.plugins.smart-splits"
 require	"user.plugins.cybu"
 require	"user.plugins.feline"
 require	"user.plugins.ufo"
-require	"user.plugins.chatgpt"
-require	"user.plugins.vim-jsdocs"
 
 -- GIT
 require "user.plugins.gitsigns"

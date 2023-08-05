@@ -94,6 +94,10 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"             -- LSP installer config
   use 'jose-elias-alvarez/null-ls.nvim'               -- LSP diagnostics and code actions
 
+  -- MOTION
+  use 'ggandor/lightspeed.nvim'                       -- Jump
+  use "mg979/vim-visual-multi"                        -- Multi cursor
+
   -- JSDOCS
   use {
     'heavenshell/vim-jsdoc',
@@ -103,6 +107,12 @@ return packer.startup(function(use)
   -- Languages Support
   use "sheerun/vim-polyglot"                          -- Syntax highlight for multiple languages
   use "gennaro-tedesco/nvim-jqx"                      -- JSON tools
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && yarn",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
   -- Treesitter
   use {
@@ -133,12 +143,10 @@ return packer.startup(function(use)
   -- Zen mode
   use "Pocco81/true-zen.nvim"
 
-  -- Multi cursor
-  use "mg979/vim-visual-multi"
-
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "akinsho/git-conflict.nvim"
+  use "tveskag/nvim-blame-line"
 
   -- AI
   use {
