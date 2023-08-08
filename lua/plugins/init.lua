@@ -24,6 +24,20 @@ return {
   },
   -- }}}
 
+  -- Null LS {{{
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'jose-elias-alvarez/typescript.nvim'
+    },
+    config = function()
+      require 'plugins.code.null-ls'
+    end
+  },
+  -- }}}
+
   -- CMP {{{
   {
     'hrsh7th/nvim-cmp',
@@ -92,10 +106,20 @@ return {
   },
   -- }}}
 
+  -- Todo Comments {{{
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function ()
+      require 'plugins.code.todo'
+    end,
+  },
+  -- }}}
+
   -- Neodim {{{
   {
-    "zbirenbaum/neodim",
-    event = "LspAttach",
+    'zbirenbaum/neodim',
+    event = 'LspAttach',
     branch = 'v2',
     config = function ()
       require 'plugins.code.neodim'
@@ -126,6 +150,16 @@ return {
   },
   -- }}}
 
+  -- Gomove {{{
+  {
+    'booperlv/nvim-gomove',
+    lazy = false,
+    config = function()
+      require 'plugins.code.gomove'
+    end
+  },
+  -- }}}
+
   -- Git Signs {{{
   {
     'lewis6991/gitsigns.nvim',
@@ -139,7 +173,7 @@ return {
   -- Git Conflict {{{
   {
     'akinsho/git-conflict.nvim',
-    version = "*",
+    version = '*',
     config = true
   },
   -- }}}
@@ -153,7 +187,7 @@ return {
       'nvim-lua/plenary.nvim',
       'ahmedkhalf/project.nvim',
       'jvgrootveld/telescope-zoxide',
-      -- [[ { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, ]]
+      -- [[ { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, ]]
     },
     config = function()
       require 'plugins.ui.telescope'
@@ -219,5 +253,4 @@ return {
     end
   },
   -- }}}
-
 }
