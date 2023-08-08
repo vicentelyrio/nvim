@@ -6,3 +6,4 @@ require 'settings'
 
 -- [[ Setup "Lazy" package manager ]]
 require('lazy').setup('plugins')
+

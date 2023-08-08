@@ -58,6 +58,8 @@ local searchCommands = {
   { 'n', keys.search.find_word, '<cmd>Telescope live_grep<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
+  { 'n', keys.search.prev_select, [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+  { 'n', keys.search.next_select, [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] },
 }
 
 local gitCommands = {
@@ -79,9 +81,3 @@ MapKeys(searchCommands)
 MapKeys(gitCommands)
 MapKeys(lspCommands)
 
---[[ -- Telescope {{{ ]]
---[[ nm('<leader>O', '<cmd>Telescope git_files<CR>')                                  -- Search for a file in project ]]
---[[ nm('<leader>i', '<cmd>Telescope jumplist<CR>')                                   -- Show jumplist (previous locations) ]]
---[[ nm('<leader>b', '<cmd>Telescope git_branches<CR>')                               -- Show git branches ]]
---[[ nm('<leader>t', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')              -- Search for dynamic symbols ]]
---[[ -- }}} ]]
