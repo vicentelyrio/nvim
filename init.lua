@@ -1,6 +1,8 @@
--- Setup "Lazy" package manager {{{
+-- [[ Install Lazy package manager ]]
 require 'manager.lazy-install'
-require('lazy').setup('plugins')
--- }}}
 
+-- [[ Project Settings ]]
 require 'settings'
+
+-- [[ Setup "Lazy" package manager ]]
+require('lazy').setup('plugins')

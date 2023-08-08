@@ -1,68 +1,87 @@
+local keys = require 'settings.keys'
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-local function nm(key, command)
-	map('n', key, command, opts)
-end
-
-local function ni(key, command)
-	map('i', key, command, opts)
-end
-
-local function nv(key, command)
-	map('v', key, command, opts)
-end
-
-local function nt(key, command)
-	map('t', key, command, opts)
-end
-
---[[
--- Keycode table:
--- {
---  key: keycode string,
---  command: function,
---  type: 'n' | 'i' | 'v' | 'x' | 't' | 'c'
--- }
---]]
 function MapKeys(keycodes)
   for _, row in ipairs(keycodes) do
-    local key = row[1]
-    local cmd = row[2]
-    local type = row[3]
+    local type = row[1]
+    local key = row[2]
+    local cmd = row[3]
 
     map(type, key, cmd, opts)
   end
 end
 
-g.mapleader = ' '                                                                -- Use Space, like key for alternative hotkeys
+g.mapleader = ' '
 
--- LSP {{{
-nm('K', '<cmd>lua vim.lsp.buf.hover()<CR>' )                                     -- Hover object
-nm('ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')                               -- Code actions
-nm('gR', '<cmd>lua vim.lsp.buf.rename()<CR>')                                    -- Rename an object
-nm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')                               -- Go to declaration
- -- }}}
+-- Paste and keep register
+map('v', 'p', '"_dP', opts)
 
--- Telescope {{{
-nm('gd', '<cmd>Telescope lsp_definitions<CR>')                                   -- Goto declaration
-nm('<leader>p', '<cmd>Telescope oldfiles<CR>')                                   -- Show recent files
-nm('<leader>O', '<cmd>Telescope git_files<CR>')                                  -- Search for a file in project
-nm('<leader>o', '<cmd>Telescope find_files<CR>')                                 -- Search for a file (ignoring git-ignore)
-nm('<leader>i', '<cmd>Telescope jumplist<CR>')                                   -- Show jumplist (previous locations)
-nm('<leader>b', '<cmd>Telescope git_branches<CR>')                               -- Show git branches
-nm('<leader>f', '<cmd>Telescope live_grep<CR>')                                  -- Find a string in project
-nm('<leader>q', '<cmd>Telescope buffers<CR>')                                    -- Show all buffers
-nm('<leader>a', '<cmd>Telescope<CR>')                                            -- Show all commands
-nm('<leader>t', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')              -- Search for dynamic symbols
--- }}}
+-- Visual --
+-- Stay in indent mode
+map('v', '<', "<gv", opts)
+map('v', '>', ">gv", opts)
 
--- Trouble {{{
-nm('<leader>x', '<cmd>TroubleToggle<CR>')                                        -- Show all problems in project (with help of LSP)
-nm('gr', '<cmd>Trouble lsp_references<CR>')                                      -- Show use of object in project
--- }}}
+local bufferCommands = {
+  { 'n', keys.buffers.prev, '<cmd>CybuPrev<CR>'},
+  { 'n', keys.buffers.next, '<cmd>CybuNext<CR>'},
+  { 'n', keys.buffers.last_prev, '<cmd>CybuLastusedPrev<CR>'},
+  { 'n', keys.buffers.last_next, '<cmd>CybuLastusedNext<CR>'},
+  { 'n', keys.buffers.list, '<cmd>Telescope buffers<CR>'},
+  { 'n', keys.buffers.close, '<cmd>Bdelete<CR>'},
+  { 'n', keys.buffers.save, '<cmd>w<CR>'},
+  { 'n', keys.buffers.new, '<cmd>enew<CR>'},
+  { 'n', keys.buffers.history, '<cmd>Telescope oldfiles<CR>'},
+  { 'n', keys.buffers.move_left, '<cmd>SmartCursorMoveLeft<CR>'},
+  { 'n', keys.buffers.move_right, '<cmd>SmartCursorMoveRight<CR>'},
+  { 'n', keys.buffers.move_up, '<cmd>SmartCursorMoveUp<CR>'},
+  { 'n', keys.buffers.move_down, '<cmd>SmartCursorMoveDown<CR>'},
+  { 'n', keys.buffers.resize_left, '<cmd>SmartResizeLeft<CR>'},
+  { 'n', keys.buffers.resize_right, '<cmd>SmartResizeRight<CR>'},
+  { 'n', keys.buffers.resize_up, '<cmd>SmartResizeUp<CR>'},
+  { 'n', keys.buffers.resize_down, '<cmd>SmartResizeDown<CR>'},
+  { 'n', keys.buffers.split_vertical, '<cmd>vsplit<CR>'},
+  { 'n', keys.buffers.split_horizontal, '<cmd>split<CR>'},
+}
 
--- Neo Tree {{{
-nm('<leader>e', '<cmd>NeoTreeFocusToggle<CR>')                                   -- Toggle file explorer
--- }}}
+local uiCommands = {
+  { 'n', keys.ui.file_explorer, '<cmd>Neotree<CR>' },
+  { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
+  { 'n', keys.ui.zen_narrow, '<cmd>TZNarrow<CR>' },
+  { 'n', keys.ui.zen_focus, '<cmd>TZFocus<CR>' },
+  { 'n', keys.ui.zen_minimalist, '<cmd>TZMinimalist<CR>' },
+  { 'n', keys.ui.zen_ataraxis, '<cmd>TZAtaraxis<CR>' },
+}
 
+local searchCommands = {
+  { 'n', keys.search.find_files, '<cmd>Telescope find_files<CR>' },
+  { 'n', keys.search.find_word, '<cmd>Telescope live_grep<CR>' },
+  { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
+  { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
+}
+
+local gitCommands = {
+  { 'n', keys.git.status, '<cmd>Telescope git_status<CR>' },
+}
+
+local lspCommands = {
+  { 'n', keys.lsp.definition, '<cmd>Telescope lsp_definitions<CR>' },
+  { 'n', keys.lsp.definition_hover, '<cmd>lua vim.lsp.buf.hover()<CR>' },
+  { 'n', keys.lsp.declaration, '<cmd>lua vim.lsp.buf.declaration()<CR>' },
+  { 'n', keys.lsp.code_action, '<cmd>lua vim.lsp.buf.code_action()<CR>' },
+  { 'n', keys.lsp.diagnostic, '<cmd>TroubleToggle<CR>' },
+  { 'n', keys.lsp.references, '<cmd>Trouble lsp_references<CR>' },
+}
+
+MapKeys(bufferCommands)
+MapKeys(uiCommands)
+MapKeys(searchCommands)
+MapKeys(gitCommands)
+MapKeys(lspCommands)
+
+--[[ -- Telescope {{{ ]]
+--[[ nm('<leader>O', '<cmd>Telescope git_files<CR>')                                  -- Search for a file in project ]]
+--[[ nm('<leader>i', '<cmd>Telescope jumplist<CR>')                                   -- Show jumplist (previous locations) ]]
+--[[ nm('<leader>b', '<cmd>Telescope git_branches<CR>')                               -- Show git branches ]]
+--[[ nm('<leader>t', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')              -- Search for dynamic symbols ]]
+--[[ -- }}} ]]

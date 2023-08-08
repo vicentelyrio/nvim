@@ -5,25 +5,68 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- load the colorscheme here
       vim.cmd([[colorscheme catppuccin-macchiato]])
     end,
   },
   -- }}}
 
-  -- Neo Tree {{{
+  -- Mason {{{
   {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
+    'williamboman/mason.nvim',
+    build = ':MasonUpdate',
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'neovim/nvim-lspconfig',
     },
-    config = function ()
-      require 'plugins.configs.neotree'
+    config = function()
+      require 'plugins.code.mason'
     end
   },
   -- }}}
+
+  -- CMP {{{
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-nvim-lua',
+      'rafamadriz/friendly-snippets',
+    },
+    config = function()
+      require 'plugins.code.cmp'
+    end
+  },
+  -- }}}
+
+  -- LSP Kind {{{
+  {
+    'onsails/lspkind-nvim',
+    lazy = true,
+    config = function()
+      require 'plugins.code.lspk'
+    end
+  },
+  -- }}}
+
+  -- Trouble {{{
+  {
+    'folke/trouble.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require 'plugins.code.trouble'
+    end,
+  },
+  -- }}}
+
   -- TreeSitter {{{
   {
     'nvim-treesitter/nvim-treesitter',
@@ -31,8 +74,137 @@ return {
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-      require 'plugins.configs.treesitter'
+      require 'plugins.code.treesitter'
     end
   },
   -- }}}
+
+  -- Neodim {{{
+  {
+    "zbirenbaum/neodim",
+    event = "LspAttach",
+    branch = 'v2',
+    config = function ()
+      require 'plugins.code.neodim'
+    end,
+  },
+  -- }}}
+
+  -- UFO Code Folding {{{
+  {
+    'kevinhwang91/nvim-ufo',
+    lazy = false,
+    dependencies = {
+      'kevinhwang91/promise-async',
+    },
+    config = function()
+      require 'plugins.code.ufo'
+    end
+  },
+  -- }}}
+
+  -- hlslens {{{
+  {
+    'kevinhwang91/nvim-hlslens',
+    lazy = false,
+    config = function()
+      require 'plugins.code.hlslens'
+    end
+  },
+  -- }}}
+
+  -- Git Signs {{{
+  {
+    'lewis6991/gitsigns.nvim',
+    lazy = false,
+    config = function()
+      require 'plugins.git.gitsigns'
+    end
+  },
+  -- }}}
+
+  -- Git Conflict {{{
+  {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = true
+  },
+  -- }}}
+
+  -- Telescope {{{
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'ahmedkhalf/project.nvim',
+      'jvgrootveld/telescope-zoxide',
+      -- [[ { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, ]]
+    },
+    config = function()
+      require 'plugins.ui.telescope'
+    end
+  },
+  -- }}}
+
+  -- Neo Tree {{{
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function ()
+      require 'plugins.ui.neotree'
+    end
+  },
+  -- }}}
+
+  -- {{{
+  {
+    'freddiehaddad/feline.nvim',
+    lazy = false,
+    config = function ()
+      require 'plugins.ui.feline'
+    end
+  },
+  -- }}}
+
+  -- Smart Splits {{{
+  {
+    'mrjones2014/smart-splits.nvim'
+  },
+  -- }}}
+
+  -- Cybu Buffer navigation {{{
+  {
+    'ghillb/cybu.nvim',
+    lazy = false,
+    config = function ()
+      require 'plugins.ui.cybu'
+    end
+  },
+  -- }}}
+
+  -- BufDelete Buffer close improved {{{
+  {
+    'famiu/bufdelete.nvim',
+    lazy = false,
+  },
+  -- }}}
+
+  -- Scroll {{{
+  {
+    'petertriho/nvim-scrollbar',
+    lazy = false,
+    config = function ()
+      require 'plugins.ui.scrollbar'
+    end
+  },
+  -- }}}
+
 }

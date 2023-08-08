@@ -8,14 +8,16 @@ neotree.setup({
     highlight = 'NeoTreeFileName',
   },
   window = {
-    width = 50,
+    width = 36,
     mappings = {
       ['l'] = 'open',
       ['h'] = 'close_node',
     }
   },
   filesystem = {
-    follow_current_file = true,
+    follow_current_file = {
+      enabled = true,
+    },
   },
 })
 
