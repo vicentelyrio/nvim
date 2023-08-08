@@ -47,10 +47,6 @@ local bufferCommands = {
 local uiCommands = {
   { 'n', keys.ui.file_explorer, '<cmd>Neotree<CR>' },
   { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
-  { 'n', keys.ui.zen_narrow, '<cmd>TZNarrow<CR>' },
-  { 'n', keys.ui.zen_focus, '<cmd>TZFocus<CR>' },
-  { 'n', keys.ui.zen_minimalist, '<cmd>TZMinimalist<CR>' },
-  { 'n', keys.ui.zen_ataraxis, '<cmd>TZAtaraxis<CR>' },
 }
 
 local searchCommands = {
@@ -58,8 +54,14 @@ local searchCommands = {
   { 'n', keys.search.find_word, '<cmd>Telescope live_grep<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
-  { 'n', keys.search.prev_select, [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-  { 'n', keys.search.next_select, [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+  {
+    'n', keys.search.prev_select,
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
+  },
+  {
+    'n', keys.search.next_select,
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
+  },
 }
 
 local gitCommands = {

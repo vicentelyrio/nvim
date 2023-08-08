@@ -1,4 +1,5 @@
 return {
+  leader = ' ',
   lsp = {
     declaration = 'gD',
     definition = 'gd',
@@ -48,11 +49,7 @@ return {
   },
   ui = {
     file_explorer = '<leader>e',
-    colorscheme = 'uc',
-    zen_narrow = 'zn',
-    zen_focus = 'zf',
-    zen_minimalist = 'zm',
-    zen_ataraxis = 'zz',
+    colorscheme = '<leader>fc',
   },
   search = {
     find_files = 'ff',
@@ -64,7 +61,6 @@ return {
   },
   git = {
     status = 'gs',
-    blame = 'gb',
   },
 }
 

@@ -1,4 +1,5 @@
-local neodim = require('neodim')
+local status_ok, neodim = pcall(require, 'neodim')
+if not status_ok then return end
 
 neodim.setup({
   refresh_delay = 75,

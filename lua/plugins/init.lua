@@ -5,7 +5,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme catppuccin-macchiato]])
+      cmd([[colorscheme catppuccin-macchiato]])
     end,
   },
   -- }}}
@@ -75,6 +75,19 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require 'plugins.code.treesitter'
+    end
+  },
+  -- }}}
+
+  -- Comments {{{
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
+    config = function()
+      require 'plugins.code.comment'
     end
   },
   -- }}}

@@ -1,6 +1,11 @@
-local mason = require('mason')
-local mason_lspconfig = require('mason-lspconfig')
-local lspconfig = require('lspconfig')
+local m_status_ok, mason = pcall(require, 'mason')
+if not m_status_ok then return end
+
+local ml_status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
+if not ml_status_ok then return end
+
+local l_status_ok, lspconfig = pcall(require, 'lspconfig')
+if not l_status_ok then return end
 
 local servers = {
 	'bashls',
