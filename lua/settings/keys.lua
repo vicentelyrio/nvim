@@ -13,6 +13,15 @@ return {
     diagnostic_setloclist = 'gq',
     code_action = 'ga',
   },
+  code = {
+    paste = 'p',
+    indent_back = '<',
+    indent_forward = '>',
+    move_word_back = '<leader>wb',
+    move_word_forward = '<leader>wf',
+    move_line_up = '<M-k>',
+    move_line_down = '<M-j>',
+  },
   cmp = {
     select_prev = '<C-k>',
     select_next = '<C-j>',

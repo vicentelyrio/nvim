@@ -12,10 +12,14 @@ if not kind_status_ok then return end
 
 local keys = require 'settings.keys'
 
+local fn = vim.fn
+
 local check_backspace = function()
   local col = fn.col '.' - 1
   return col == 0 or fn.getline('.'):sub(col, col):match '%s'
 end
+
+local opts = { 'i', 'c' }
 
 cmp.setup{
   snippet = {
@@ -27,10 +31,10 @@ cmp.setup{
   mapping = {
     [keys.cmp.select_prev] = cmp.mapping.select_prev_item(),
 		[keys.cmp.select_next] = cmp.mapping.select_next_item(),
-    [keys.cmp.scroll_prev] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-    [keys.cmp.scroll_next] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
-    [keys.cmp.complete] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    [keys.cmp.disable] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    [keys.cmp.scroll_prev] = cmp.mapping(cmp.mapping.scroll_docs(-1), opts),
+    [keys.cmp.scroll_next] = cmp.mapping(cmp.mapping.scroll_docs(1), opts),
+    [keys.cmp.complete] = cmp.mapping(cmp.mapping.complete(), opts),
+    [keys.cmp.disable] = cmp.config.disable,
     [keys.cmp.abort] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -50,10 +54,7 @@ cmp.setup{
       else
         fallback()
       end
-    end, {
-      'i',
-      's',
-    }),
+    end, { 'i', 's' }),
     [keys.cmp.cycle_prev] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -62,10 +63,7 @@ cmp.setup{
       else
         fallback()
       end
-    end, {
-      'i',
-      's',
-    }),
+    end, { 'i', 's' }),
   },
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },

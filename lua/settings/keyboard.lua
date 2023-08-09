@@ -12,15 +12,7 @@ function MapKeys(keycodes)
   end
 end
 
-g.mapleader = ' '
-
--- Paste and keep register
-map('v', 'p', '"_dP', opts)
-
--- Visual --
--- Stay in indent mode
-map('v', '<', "<gv", opts)
-map('v', '>', ">gv", opts)
+vim.g.mapleader = ' '
 
 local bufferCommands = {
   { 'n', keys.buffers.prev, '<cmd>CybuPrev<CR>'},
@@ -42,6 +34,18 @@ local bufferCommands = {
   { 'n', keys.buffers.resize_down, '<cmd>SmartResizeDown<CR>'},
   { 'n', keys.buffers.split_vertical, '<cmd>vsplit<CR>'},
   { 'n', keys.buffers.split_horizontal, '<cmd>split<CR>'},
+}
+
+local codeCommands = {
+  { 'v', keys.code.paste, '"_dP' },
+  { 'v', keys.code.indent_back, '<gv' },
+  { 'v', keys.code.indent_forward, '>gv' },
+  { 'n', keys.code.move_word_back, '<cmd>MoveWord(-1)<CR>' },
+  { 'n', keys.code.move_word_forward, '<cmd>MoveWord(1)<CR>' },
+  { 'n', keys.code.move_line_up, '<cmd>MoveLine(-1)<CR>' },
+  { 'n', keys.code.move_line_down, '<cmd>MoveLine(1)<CR>' },
+  { 'v', keys.code.move_line_up, '<cmd>MoveBlock(-1)<CR>' },
+  { 'v', keys.code.move_line_down, '<cmd>MoveBlock(1)<CR>' },
 }
 
 local uiCommands = {
@@ -82,4 +86,4 @@ MapKeys(uiCommands)
 MapKeys(searchCommands)
 MapKeys(gitCommands)
 MapKeys(lspCommands)
-
+MapKeys(codeCommands)

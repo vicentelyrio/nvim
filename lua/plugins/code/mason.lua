@@ -33,17 +33,13 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- [[ Load individual languages setup ]]
 local opts = {}
 
 for _, server in pairs(servers) do
 	server = vim.split(server, '@')[1]
 
-	--[[ opts = { ]]
-	--[[ 	on_attach = require('user.plugins.lsp.handlers').on_attach, ]]
-	--[[ 	capabilities = require('user.plugins.lsp.handlers').capabilities, ]]
-	--[[ } ]]
-
-	local require_ok, conf_opts = pcall(require, 'plugins.lsp.settings.' .. server)
+	local require_ok, conf_opts = pcall(require, 'plugins.code.languages.' .. server)
 
 	if require_ok then
 		opts = vim.tbl_deep_extend('force', conf_opts, opts)

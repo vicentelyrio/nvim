@@ -1,12 +1,7 @@
-require 'settings.constants'
 require 'settings.keyboard'
 require 'settings.commands'
 
--- Set associating between turned on plugins and filetype
-cmd[[filetype plugin on]]
-
--- Disable comments on pressing Enter
-cmd[[autocmd FileType * setlocal formatoptions-=cro]]
+local opt = vim.opt
 
 -- Backups {{{
 opt.undofile = true         -- enable persistent undo
@@ -70,7 +65,9 @@ opt.signcolumn = 'yes'      -- always show the sign column, otherwise it would s
 
 opt.linebreak = true        -- Wrap on word boundary
 opt.wrap = false            -- display lines as one long line
-opt.guifont = 'monospace:h17'
+opt.guifont = 'monospace:h14'
+opt.list = true
+opt.listchars:append "space:⋅"
 
 opt.conceallevel = 0        -- so that `` is visible in markdown files
 opt.fileencoding = 'utf-8'  -- the encoding written to a file
@@ -114,7 +111,7 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-  g['loaded_' .. plugin] = 1
+  vim.g['loaded_' .. plugin] = 1
 end
 -- }}}
 

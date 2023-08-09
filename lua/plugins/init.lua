@@ -5,7 +5,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      cmd([[colorscheme catppuccin-macchiato]])
+      vim.cmd([[colorscheme catppuccin-macchiato]])
     end,
   },
   -- }}}
@@ -150,15 +150,22 @@ return {
   },
   -- }}}
 
-  -- Gomove {{{
+  -- Move {{{
   {
-    'booperlv/nvim-gomove',
+    'fedepujol/move.nvim',
     lazy = false,
-    config = function()
-      require 'plugins.code.gomove'
-    end
   },
   -- }}}
+
+  -- Indent {{{
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    lazy = false,
+    config = function()
+      require 'plugins.code.blankline'
+    end
+  },
+  --- }}}
 
   -- Git Signs {{{
   {
@@ -187,7 +194,6 @@ return {
       'nvim-lua/plenary.nvim',
       'ahmedkhalf/project.nvim',
       'jvgrootveld/telescope-zoxide',
-      -- [[ { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, ]]
     },
     config = function()
       require 'plugins.ui.telescope'
@@ -211,7 +217,7 @@ return {
   },
   -- }}}
 
-  -- {{{
+  -- Feline {{{
   {
     'freddiehaddad/feline.nvim',
     lazy = false,
