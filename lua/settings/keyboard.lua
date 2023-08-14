@@ -73,12 +73,15 @@ local gitCommands = {
 }
 
 local lspCommands = {
-  { 'n', keys.lsp.definition, '<cmd>Telescope lsp_definitions<CR>' },
+  { 'n', keys.lsp.definition, '<cmd>TroubleToggle lsp_definitions<CR>' },
   { 'n', keys.lsp.definition_hover, '<cmd>lua vim.lsp.buf.hover()<CR>' },
   { 'n', keys.lsp.declaration, '<cmd>lua vim.lsp.buf.declaration()<CR>' },
   { 'n', keys.lsp.code_action, '<cmd>lua vim.lsp.buf.code_action()<CR>' },
-  { 'n', keys.lsp.diagnostic, '<cmd>TroubleToggle<CR>' },
   { 'n', keys.lsp.references, '<cmd>Trouble lsp_references<CR>' },
+  { 'n', keys.lsp.document_diagnostics, '<cmd>TroubleToggle document_diagnostics<CR>' },
+  { 'n', keys.lsp.workspace_diagnostics, '<cmd>TroubleToggle workspace_diagnostics<CR>'},
+  { 'n', keys.lsp.quickfix, '<cmd>TroubleToggle quickfix<CR>'},
+  { 'n', keys.lsp.loclist, '<cmd>TroubleToggle loclist<CR>'},
 }
 
 MapKeys(bufferCommands)
