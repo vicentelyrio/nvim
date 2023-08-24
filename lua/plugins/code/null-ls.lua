@@ -27,8 +27,9 @@ null_ls.setup({
 		diagnostics.todo_comments,
 		diagnostics.trail_space,
 
-    completion.tags,
-    completion.spell,
+    -- completion.spell,
+    completion.vsnip,
+    completion.luasnip,
 	},
 })
 

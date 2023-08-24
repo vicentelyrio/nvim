@@ -127,6 +127,15 @@ return {
   },
   -- }}}
 
+  -- Colorizer {{{
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function ()
+      require 'plugins.code.colorizer'
+    end,
+  },
+  -- }}}
+
   -- UFO Code Folding {{{
   {
     'kevinhwang91/nvim-ufo',
@@ -256,6 +265,16 @@ return {
     lazy = false,
     config = function ()
       require 'plugins.ui.scrollbar'
+    end
+  },
+  -- }}}
+
+  -- PIO - PlatformIO {{{
+  {
+    'normen/vim-pio',
+    lazy = false,
+    config = function()
+      require 'plugins.code.vimpio'
     end
   },
   -- }}}
