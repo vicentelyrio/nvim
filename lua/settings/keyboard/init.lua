@@ -1,4 +1,4 @@
-local keys = require 'settings.keys'
+local keys = require 'settings.keyboard.keys'
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 

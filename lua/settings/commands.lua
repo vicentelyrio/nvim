@@ -8,7 +8,6 @@ vim.cmd[[filetype plugin on]]
 -- Disable comments on pressing Enter
 vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
-
 -- Highlight yanked {{{
 vim.cmd [[
   augroup highlight_yank

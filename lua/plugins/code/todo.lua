@@ -1,4 +1,8 @@
-local status_ok, todo = pcall(require, 'todo-comments')
-if not status_ok then return end
+return {
+  'folke/todo-comments.nvim',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function ()
+    require('todo-comments').setup()
+  end,
+}
 
-todo.setup()
