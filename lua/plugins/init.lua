@@ -31,6 +31,7 @@ return {
   require 'plugins.code.treesitter-textobjects',
   require 'plugins.code.trouble',
   require 'plugins.code.ufo',
+  require 'plugins.code.visual-multi',
 -- }}}
 }
 
