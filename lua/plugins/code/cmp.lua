@@ -14,7 +14,7 @@ return {
   config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
-    local lspkind = require('lspkind')
+    local lspk = require('lspkind')
     local keys = require 'settings.keyboard.keys'
     local fn = vim.fn
 
@@ -71,7 +71,7 @@ return {
       },
       formatting = {
         fields = { 'kind', 'abbr', 'menu' },
-        format = lspkind.cmp_format({
+        format = lspk.cmp_format({
           mode = 'symbol',
           maxwidth = 50,
         }),
