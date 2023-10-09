@@ -21,6 +21,7 @@ return {
 -- CODE {{{
   require 'plugins.code.cmp',
   require 'plugins.code.comment',
+  require 'plugins.code.colorizer',
   require 'plugins.code.hlslens',
   require 'plugins.code.mason',
   require 'plugins.code.move',
