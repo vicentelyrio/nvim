@@ -1,4 +1,13 @@
-local status_ok, comment = pcall(require, 'Comment')
-if not status_ok then return end
+return {
+  'numToStr/Comment.nvim',
+  lazy = false,
+  dependencies = {
+    'JoosepAlviste/nvim-ts-context-commentstring'
+  },
+  config = function()
+    local comment = require('Comment')
 
-comment.setup()
+    comment.setup()
+  end
+}
+

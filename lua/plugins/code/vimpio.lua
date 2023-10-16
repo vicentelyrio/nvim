@@ -1,5 +1,9 @@
-local status_ok, vimpio = pcall(require, 'vim-pio')
-if not status_ok then return end
+return {
+  'normen/vim-pio',
+  config = function()
+    local vimpio = require('vimpio')
 
-vimpio.setup()
+    vimpio.setup()
+  end
+}
 

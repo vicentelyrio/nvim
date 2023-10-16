@@ -1,5 +1,64 @@
 return {
   leader = ' ',
+  treesitter = {
+    select = {
+      assign_outer = 'a=',
+      assign_inner = 'i=',
+      assign_lhs = 'l=',
+      assign_rhs = 'r=',
+
+      parameter_outer = 'aa',
+      parameter_inner = 'ia',
+
+      conditional_outer = 'ai',
+      conditional_inner = 'ii',
+
+      loop_outer = 'al',
+      loop_inner = 'il',
+
+      call_outer = 'af',
+      call_inner = 'if',
+
+      function_outer = 'am',
+      function_inner = 'im',
+
+      class_outer = 'ac',
+      class_inner = 'ic',
+    },
+    swap = {
+      next_parameter_inner = '<leader>na',
+      next_function_outer = '<leader>nm',
+      prev_parameter_inner = '<leader>pa',
+      prev_function_outer = '<leader>pm',
+    },
+    move = {
+      next_start_call_outer = ']f',
+      next_start_function_outer = ']m',
+      next_start_class_outer = ']c',
+      next_start_conditional_outer = ']i',
+      next_start_loop_outer = ']l',
+      next_start_scope = ']s',
+      next_start_fold = ']z',
+
+      next_end_call_outer = ']F',
+      next_end_function_outer = ']M',
+      next_end_class_outer = ']C',
+      next_end_conditional_outer = ']I',
+      next_end_loop_outer = ']L',
+
+      prev_start_call_outer = '[f',
+      prev_start_function_outer = '[m',
+      prev_start_class_outer = '[c',
+      prev_start_conditional_outer = '[i',
+      prev_start_loop_outer = '[l',
+
+      prev_end_call_outer = '[F',
+      prev_end_function_outer = '[M',
+      prev_end_class_outer = '[C',
+      prev_end_conditional_outer = '[I',
+      prev_end_loop_outer = '[L',
+    },
+  },
   lsp = {
     definition_hover = 'K',
     definition = 'gd',

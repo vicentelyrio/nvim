@@ -1,6 +1,3 @@
-require 'settings.keyboard'
-require 'settings.commands'
-
 local opt = vim.opt
 
 -- Backups {{{
@@ -114,4 +111,5 @@ for _, plugin in pairs(disabled_built_ins) do
   vim.g['loaded_' .. plugin] = 1
 end
 -- }}}
+
 

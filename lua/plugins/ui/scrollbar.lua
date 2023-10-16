@@ -1,9 +1,10 @@
-local status_ok, scrollbar = pcall(require, 'scrollbar')
-if not status_ok then
-  return
-end
+return {
+  'petertriho/nvim-scrollbar',
+  lazy = false,
+  config = function ()
+    require('scrollbar').setup()
+    require('scrollbar.handlers.search').setup()
+    require('scrollbar.handlers.gitsigns').setup()
+  end
+}
 
-scrollbar.setup()
-
-require('scrollbar.handlers.search').setup()
-require('scrollbar.handlers.gitsigns').setup()
