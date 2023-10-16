@@ -89,7 +89,7 @@ return {
       },
       textobjects = {
         select = {
-          enable = true,
+          enable = false,
           lookahead = false,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
