@@ -66,6 +66,22 @@ local searchCommands = {
     'n', keys.search.next_select,
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
   },
+  {
+    'n', keys.search.spectre_open,
+    [[<Cmd>lua require("spectre").toggle()<CR>]]
+  },
+  {
+    'n', keys.search.spectre_find_word,
+    [[<Cmd>lua require("spectre").open_visual({select_word=true})<CR>]]
+  },
+  {
+    'v', keys.search.spectre_find_word,
+    [[<esc><Cmd>lua require("spectre").open_visual()<CR>]]
+  },
+  {
+    'n', keys.search.spectre_find_file,
+    [[<Cmd>lua require("spectre").open_file_search({select_word=true})<CR>]]
+  },
 }
 
 local gitCommands = {

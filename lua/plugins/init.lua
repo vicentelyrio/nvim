@@ -11,6 +11,7 @@ return {
   -- require 'plugins.ui.project',
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
+  require 'plugins.ui.spectre',
   require 'plugins.ui.telescope',
 -- }}}
 

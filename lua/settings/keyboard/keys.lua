@@ -126,6 +126,9 @@ return {
     unselect = '<leader>h',
     next_select = 'n',
     prev_select = 'N',
+    spectre_open = '<leader>S',
+    spectre_find_word = '<leader>sw',
+    spectre_find_file = '<leader>sf',
   },
   git = {
     status = 'gs',
