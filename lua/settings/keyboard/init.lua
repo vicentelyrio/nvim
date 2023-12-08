@@ -49,7 +49,7 @@ local codeCommands = {
 }
 
 local uiCommands = {
-  { 'n', keys.ui.file_explorer, '<cmd>Neotree<CR>' },
+  { 'n', keys.ui.file_explorer, '<cmd>Neotree toggle<CR>' },
   { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
 }
 
@@ -106,3 +106,4 @@ MapKeys(searchCommands)
 MapKeys(gitCommands)
 MapKeys(lspCommands)
 MapKeys(codeCommands)
+

@@ -18,6 +18,7 @@ return {
 -- GIT {{{
   require 'plugins.git.gitsigns',
   require 'plugins.git.gitconflict',
+  require 'plugins.git.wakatime',
 -- }}}
 
 -- CODE {{{

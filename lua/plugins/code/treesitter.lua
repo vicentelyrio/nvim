@@ -74,10 +74,6 @@ return {
         enable = true,
         disable = { 'yaml' }
       },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = true
-      },
       incremental_selection = {
         enable = true,
         keymaps = {
