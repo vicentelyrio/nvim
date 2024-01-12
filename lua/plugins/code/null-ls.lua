@@ -3,7 +3,6 @@ return {
   lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'jose-elias-alvarez/typescript.nvim'
   },
   config = function()
     local null_ls = require('null-ls')
@@ -20,7 +19,6 @@ return {
     null_ls.setup({
       debug = false,
       sources = {
-        require('typescript.extensions.null-ls.code-actions'),
         formatting.trim_whitespace,
         formatting.trim_newlines,
 

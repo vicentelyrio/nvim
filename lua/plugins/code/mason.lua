@@ -18,7 +18,6 @@ return {
       'cssmodules_ls',
       'custom_elements_ls',
       'graphql',
-      'vtsls',
       'vuels',
       'eslint',
       'html',
