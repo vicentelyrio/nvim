@@ -9,6 +9,7 @@ return {
   config = function()
     local treesitter = require('nvim-treesitter.configs')
     local keys = require('settings.keyboard.keys')
+    local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
     treesitter.setup {
       ensure_installed = {
@@ -163,6 +164,15 @@ return {
           },
         },
       },
+    }
+
+    parser_config.hypr = {
+      install_info = {
+        url = 'https://github.com/luckasRanarison/tree-sitter-hypr',
+        files = { 'src/parser.c' },
+        branch = 'master',
+      },
+      filetype = 'hypr',
     }
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')

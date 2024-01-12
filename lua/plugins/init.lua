@@ -26,6 +26,7 @@ return {
   require 'plugins.code.comment',
   require 'plugins.code.colorizer',
   require 'plugins.code.hlslens',
+  require 'plugins.code.hyper',
   require 'plugins.code.mason',
   require 'plugins.code.move',
   require 'plugins.code.neodim',
@@ -37,6 +38,7 @@ return {
   require 'plugins.code.ufo',
   require 'plugins.code.vimpio',
   require 'plugins.code.visual-multi',
+  require 'plugins.code.yuck',
 -- }}}
 }
 

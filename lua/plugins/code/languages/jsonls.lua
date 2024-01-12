@@ -161,6 +161,11 @@ local schemas = {
     fileMatch = { "resume.json" },
     url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   },
+  {
+    description = "Conf",
+    fileMatch = { "*.conf" },
+    url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  },
 }
 
 -- local function extend(tab1, tab2)

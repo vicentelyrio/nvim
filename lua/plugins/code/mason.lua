@@ -19,7 +19,6 @@ return {
       'custom_elements_ls',
       'graphql',
       'vtsls',
-      'nil_ls',
       'vuels',
       'eslint',
       'html',
