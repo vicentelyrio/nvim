@@ -25,8 +25,8 @@ return {
         diagnostics.dotenv_linter,
         diagnostics.stylint,
         diagnostics.tidy,
-        diagnostics.tsc,
-        diagnostics.standardjs,
+        -- diagnostics.tsc,
+        -- diagnostics.standardjs,
         diagnostics.todo_comments,
         diagnostics.trail_space,
 

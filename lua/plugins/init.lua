@@ -36,7 +36,7 @@ return {
   require 'plugins.code.treesitter',
   require 'plugins.code.treesitter-textobjects',
   require 'plugins.code.trouble',
-  require 'plugins.code.typescript-tools',
+  -- require 'plugins.code.typescript-tools',
   require 'plugins.code.ufo',
   require 'plugins.code.vimpio',
   require 'plugins.code.visual-multi',

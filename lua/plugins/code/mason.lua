@@ -14,15 +14,12 @@ return {
       'bashls',
       'jsonls',
       'yamlls',
-      'cssls',
       'cssmodules_ls',
-      'custom_elements_ls',
       'graphql',
-      'vuels',
-      'eslint',
       'html',
       'lua_ls',
       'marksman',
+      'tsserver',
     }
 
     mason.setup()
