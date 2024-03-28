@@ -12,13 +12,12 @@ return {
 
     local servers = {
       'bashls',
-      'jsonls',
-      'yamlls',
       'cssmodules_ls',
+      'custom_elements_ls',
       'graphql',
       'html',
+      'jsonls',
       'lua_ls',
-      'marksman',
       'tsserver',
     }
 
@@ -51,4 +50,3 @@ return {
     end
   end
 }
-

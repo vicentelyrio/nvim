@@ -6,33 +6,29 @@ return {
   },
   config = function()
     local null_ls = require('null-ls')
-
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+    local actions = null_ls.builtins.code_actions
     local formatting = null_ls.builtins.formatting
-
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     local diagnostics = null_ls.builtins.diagnostics
-
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
     local completion = null_ls.builtins.completion
 
     null_ls.setup({
       debug = false,
       sources = {
-        formatting.trim_whitespace,
-        formatting.trim_newlines,
+        actions.gitsigns,
 
+        completion.luasnip,
+
+        formatting.cueimports,
+
+        diagnostics.codespell,
         diagnostics.dotenv_linter,
-        diagnostics.stylint,
+        diagnostics.editorconfig_checker,
+        diagnostics.markdownlint,
+        diagnostics.stylelint,
         diagnostics.tidy,
-        -- diagnostics.tsc,
-        -- diagnostics.standardjs,
         diagnostics.todo_comments,
         diagnostics.trail_space,
-
-        -- completion.spell,
-        completion.vsnip,
-        completion.luasnip,
+        diagnostics.yamllint,
       },
     })
   end
