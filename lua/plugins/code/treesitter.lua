@@ -36,11 +36,10 @@ return {
         'hjson',
         'html',
         'http',
+        'hyprlang',
         'javascript',
         'jsdoc',
         'json5',
-        'kotlin',
-        'latex',
         'lua',
         'luadoc',
         'make',
@@ -51,8 +50,6 @@ return {
         'robot',
         'rust',
         'scss',
-        'svelte',
-        'terraform',
         'todotxt',
         'toml',
         'tsx',
@@ -60,10 +57,7 @@ return {
         'vim',
         'vimdoc',
         'vue',
-        'wgsl',
-        'wgsl_bevy',
         'yaml',
-        'zig',
       },
       sync_install = false,
       auto_install = true,
@@ -166,14 +160,9 @@ return {
       },
     }
 
-    parser_config.hypr = {
-      install_info = {
-        url = 'https://github.com/luckasRanarison/tree-sitter-hypr',
-        files = { 'src/parser.c' },
-        branch = 'master',
-      },
-      filetype = 'hypr',
-    }
+    vim.filetype.add({
+      pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
