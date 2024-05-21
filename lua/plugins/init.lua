@@ -30,7 +30,7 @@ return {
   require 'plugins.code.hyper',
   require 'plugins.code.mason',
   require 'plugins.code.move',
-  require 'plugins.code.neodim',
+ -- require 'plugins.code.neodim',
   require 'plugins.code.null-ls',
   require 'plugins.code.todo',
   require 'plugins.code.treesitter',
