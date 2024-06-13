@@ -89,15 +89,15 @@ local gitCommands = {
 }
 
 local lspCommands = {
-  { 'n', keys.lsp.definition, '<cmd>TroubleToggle lsp_definitions<CR>' },
+  { 'n', keys.lsp.definition, '<cmd>Trouble lsp_definitions<CR>' },
   { 'n', keys.lsp.definition_hover, '<cmd>lua vim.lsp.buf.hover()<CR>' },
   { 'n', keys.lsp.declaration, '<cmd>lua vim.lsp.buf.declaration()<CR>' },
   { 'n', keys.lsp.code_action, '<cmd>lua vim.lsp.buf.code_action()<CR>' },
   { 'n', keys.lsp.references, '<cmd>Trouble lsp_references<CR>' },
-  { 'n', keys.lsp.document_diagnostics, '<cmd>TroubleToggle document_diagnostics<CR>' },
-  { 'n', keys.lsp.workspace_diagnostics, '<cmd>TroubleToggle workspace_diagnostics<CR>'},
-  { 'n', keys.lsp.quickfix, '<cmd>TroubleToggle quickfix<CR>'},
-  { 'n', keys.lsp.loclist, '<cmd>TroubleToggle loclist<CR>'},
+  { 'n', keys.lsp.document_diagnostics, '<cmd>Trouble document_diagnostics<CR>' },
+  { 'n', keys.lsp.workspace_diagnostics, '<cmd>Trouble workspace_diagnostics<CR>'},
+  { 'n', keys.lsp.quickfix, '<cmd>Trouble quickfix<CR>'},
+  { 'n', keys.lsp.loclist, '<cmd>Trouble loclist<CR>'},
 }
 
 MapKeys(bufferCommands)
