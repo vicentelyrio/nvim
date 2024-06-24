@@ -9,7 +9,7 @@ return {
   config = function()
     local treesitter = require('nvim-treesitter.configs')
     local keys = require('settings.keyboard.keys')
-    local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+    -- local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
     treesitter.setup {
       ensure_installed = {
