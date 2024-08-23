@@ -137,18 +137,18 @@ return {
       --      print(args.source, " moved to ", args.destination)
       --    end
       --  },
-        {
-          event = "neo_tree_buffer_enter",
-          handler = function()
-            vim.defer_fn(function()
-              local state = require('neo-tree.sources.manager').get_state('filesystem')
-              if not require('neo-tree.sources.common.preview').is_active() then
-                state.config = { use_float = false, use_image_nvim = true } -- or whatever your config is
-                state.commands.toggle_preview(state)
-              end
-            end, 100)
-          end
-        },
+        -- {
+        --   event = "neo_tree_buffer_enter",
+        --   handler = function()
+        --     vim.defer_fn(function()
+        --       local state = require('neo-tree.sources.manager').get_state('filesystem')
+        --       if not require('neo-tree.sources.common.preview').is_active() then
+        --         state.config = { use_float = false, use_image_nvim = true } -- or whatever your config is
+        --         state.commands.toggle_preview(state)
+        --       end
+        --     end, 100)
+        --   end
+        -- },
       --  {
       --    event = "neo_tree_buffer_leave",
       --    handler = function()
