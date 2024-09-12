@@ -2,12 +2,13 @@ return {
   'onsails/lspkind-nvim',
   lazy = true,
   config = function()
-    local lspkind = require('lspkind')
+    local lspk = require('lspkind')
 
-    lspkind.init({
+    lspk.init({
       mode = 'symbol',
       preset = 'codicons',
       symbol_map = {
+        Supermaven = "",
         Text = '',
         Method = '',
         Function = '',

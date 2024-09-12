@@ -12,6 +12,7 @@ return {
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
   require 'plugins.ui.spectre',
+  require 'plugins.ui.supermaven',
   require 'plugins.ui.telescope',
   require 'plugins.ui.zip',
 -- }}}
@@ -23,6 +24,7 @@ return {
 -- }}}
 
 -- CODE {{{
+  require 'plugins.code.better-ts-errors',
   require 'plugins.code.cmp',
   require 'plugins.code.comment',
   require 'plugins.code.colorizer',
