@@ -74,6 +74,7 @@ return {
         format = lspk.cmp_format({
           mode = 'symbol',
           maxwidth = 50,
+          symbol_map = { Supermaven = "" }
         }),
       },
       sources = {
