@@ -1,10 +1,12 @@
+local keys = require 'settings.keyboard.keys'
+
 return {
   'OlegGulevskyy/better-ts-errors.nvim',
   dependencies = { 'MunifTanjim/nui.nvim' },
   config = {
     keymaps = {
-      toggle = '<leader>df', -- default '<leader>dd'
-      go_to_definition = '<leader>dx' -- default '<leader>dx'
+      toggle = keys.ts.toggle,
+      go_to_definition = keys.ts.go_to_definition
     }
   }
 }

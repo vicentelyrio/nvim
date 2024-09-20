@@ -31,6 +31,7 @@ return {
   require 'plugins.code.hlslens',
   require 'plugins.code.hyper',
   require 'plugins.code.mason',
+  require 'plugins.code.mini',
   require 'plugins.code.move',
 --  require 'plugins.code.neodim',
   require 'plugins.code.null-ls',

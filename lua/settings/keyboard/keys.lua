@@ -156,5 +156,9 @@ return {
     next = 'j', -- next item
     help = '?', -- help menu
   },
+  ts = {
+    toggle = 'ge',
+    go_to_definition = 'gr',
+  }
 }
 
