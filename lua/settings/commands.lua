@@ -23,3 +23,10 @@ vim.cmd [[
 ]]
 --- }}}
 
+-- Prevent root from changing after it's set
+vim.cmd([[
+  augroup ProjectRootLock
+    autocmd!
+    autocmd BufEnter * silent! let &autochdir = v:false | execute 'cd ' .. getcwd()
+  augroup END
+]])

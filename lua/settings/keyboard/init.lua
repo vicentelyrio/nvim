@@ -53,9 +53,15 @@ local uiCommands = {
   { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
 }
 
+-- A helper function to find the project root
+function Get_project_root()
+  local util = require('lspconfig.util')
+  return util.root_pattern('.git', 'package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
+end
+
 local searchCommands = {
-  { 'n', keys.search.find_files, '<cmd>Telescope find_files<CR>' },
-  { 'n', keys.search.find_word, '<cmd>Telescope live_grep<CR>' },
+  { 'n', keys.search.find_files, ':lua require("telescope.builtin").find_files({ cwd = Get_project_root() })<CR>' },
+  { 'n', keys.search.find_word, ':lua require("telescope.builtin").live_grep({ cwd = Get_project_root() })<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
   {

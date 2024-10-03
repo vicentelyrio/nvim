@@ -5,7 +5,7 @@ opt.undofile = true         -- enable persistent undo
 opt.swapfile = false        -- Don't use swapfile
 opt.backup = false          -- creates a backup file
 opt.writebackup = false     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-opt.history = 100           -- Remember N lines in history
+opt.history = 1000           -- Remember N lines in history
 -- }}}
 
 -- Tabs {{{
@@ -75,8 +75,8 @@ opt.hidden = true           -- Enable background buffers
 opt.lazyredraw = true       -- Faster scrolling
 opt.synmaxcol = 240         -- Max column for syntax highlight
 
-opt.updatetime = 300        -- faster completion (400ms default)
-opt.timeoutlen = 1000        -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.updatetime = 200        -- faster completion (400ms default)
+opt.timeoutlen = 600        -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.updatetime = 250        -- ms to wait for trigger an event
 -- }}}
 
