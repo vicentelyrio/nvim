@@ -24,7 +24,6 @@ return {
         diagnostics.dotenv_linter,
         diagnostics.editorconfig_checker,
         diagnostics.markdownlint,
-        diagnostics.stylelint,
         diagnostics.tidy,
         diagnostics.todo_comments,
         diagnostics.trail_space,
