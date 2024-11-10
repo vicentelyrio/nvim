@@ -60,7 +60,7 @@ function Get_project_root()
 end
 
 local searchCommands = {
-  { 'n', keys.search.find_files, ':lua require("telescope.builtin").find_files({ cwd = Get_project_root() })<CR>' },
+  { 'n', keys.search.find_files, ':lua require("telescope.builtin").find_files({ cwd = Get_project_root(), hidden = true })<CR>' },
   { 'n', keys.search.find_word, ':lua require("telescope.builtin").live_grep({ cwd = Get_project_root() })<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
