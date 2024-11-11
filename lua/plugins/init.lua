@@ -30,6 +30,7 @@ return {
   require 'plugins.code.cmp',
   require 'plugins.code.comment',
   require 'plugins.code.colorizer',
+  require 'plugins.code.dadbot',
   require 'plugins.code.mason',
   require 'plugins.code.move',
   require 'plugins.code.none-ls',
