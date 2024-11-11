@@ -1,3 +1,5 @@
+-- lsp manager
+-- see https://github.com/williamboman/mason.nvim
 return {
   'williamboman/mason.nvim',
   build = ':MasonUpdate',
@@ -12,6 +14,8 @@ return {
 
     local servers = {
       'bashls',
+      'codespell',
+      'editorconfig_checker',
       'cssmodules_ls',
       'custom_elements_ls',
       'graphql',

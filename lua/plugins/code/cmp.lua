@@ -1,3 +1,5 @@
+-- code completion
+-- see https://github.com/hrsh7th/nvim-cmp
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -81,12 +83,12 @@ return {
         { name = 'supermaven' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'buffer' },
-        { name = 'nvim_lua' },
-        { name = 'luasnip' },
-        { name = 'tmux' },
         { name = 'path' },
-        { name = 'emoji' },
+        -- { name = 'buffer' },
+        -- { name = 'nvim_lua' },
+        -- { name = 'luasnip' },
+        -- { name = 'tmux' },
+        -- { name = 'emoji' },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -96,7 +98,7 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     }
 
