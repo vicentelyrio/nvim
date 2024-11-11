@@ -9,6 +9,7 @@ return {
   require 'plugins.ui.feline',
   require 'plugins.ui.lspkind',
   require 'plugins.ui.neotree',
+  require 'plugins.ui.noice',
   require 'plugins.ui.project',
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',

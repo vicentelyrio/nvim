@@ -14,15 +14,12 @@ return {
 
     local servers = {
       'bashls',
-      'codespell',
-      'editorconfig_checker',
       'cssmodules_ls',
       'custom_elements_ls',
       'graphql',
       'html',
       'jsonls',
       'lua_ls',
-      'ts_ls',
     }
 
     mason.setup()

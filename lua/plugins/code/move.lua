@@ -2,6 +2,6 @@
 -- see https://github.com/fedepujol/move.nvim
 return {
   'fedepujol/move.nvim',
-  lazy = false,
+  event = "VeryLazy",
 }
 

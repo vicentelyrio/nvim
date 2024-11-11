@@ -30,7 +30,6 @@ return {
         diagnostics.gdlint,
         diagnostics.hadolint,
         diagnostics.markdownlint,
-        diagnostics.selene,
         diagnostics.tidy,
         diagnostics.todo_comments,
         diagnostics.trail_space,

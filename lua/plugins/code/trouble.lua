@@ -1,6 +1,6 @@
 return {
   'folke/trouble.nvim',
-  lazy = false,
+  event = "VeryLazy",
   version = '2.10.0',
   dependencies = {
     'nvim-tree/nvim-web-devicons',

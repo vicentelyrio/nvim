@@ -3,7 +3,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  lazy = false,
+  event = "VeryLazy",
   config = function ()
     require('spectre').setup()
   end
