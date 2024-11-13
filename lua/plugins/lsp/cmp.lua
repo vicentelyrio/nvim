@@ -8,10 +8,8 @@ return {
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/cmp-nvim-lua',
-    'rafamadriz/friendly-snippets',
   },
   config = function()
     local cmp = require('cmp')
@@ -84,11 +82,6 @@ return {
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
-        -- { name = 'buffer' },
-        -- { name = 'nvim_lua' },
-        -- { name = 'luasnip' },
-        -- { name = 'tmux' },
-        -- { name = 'emoji' },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -101,9 +94,6 @@ return {
         ghost_text = true,
       },
     }
-
-    -- Add snippets from Friendly Snippets
-    -- require('luasnip/loaders/from_vscode').lazy_load()
   end
 }
 

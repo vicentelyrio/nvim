@@ -15,17 +15,14 @@ return {
   require 'plugins.code.todo',
   require 'plugins.code.ufo',
   require 'plugins.code.visual-multi',
-  require 'plugins.code.zip',
+  require 'plugins.code.treesj',
+  require 'plugins.code.treesitter',
+  require 'plugins.code.treesitter-textobjects',
 -- }}}
 
--- COMPLETION {{{
-  require 'plugins.completion.supermaven',
-  -- require 'plugins.completion.cmp',
-  -- require 'plugins.code.dadbot',
-  -- require 'plugins.code.mason',
-  -- require 'plugins.code.none-ls',
-  -- require 'plugins.code.treesitter',
-  -- require 'plugins.code.treesitter-textobjects',
+-- AI {{{
+  require 'plugins.ai.avante',
+  require 'plugins.ai.supermaven',
 -- }}}
 
 -- GIT {{{
@@ -35,9 +32,21 @@ return {
 -- }}}
 
 -- LANGUAGES (language support) {{{
+  require 'plugins.languages.dadbot',
   require 'plugins.languages.better-ts-errors',
+  require 'plugins.languages.typescript-tools',
   require 'plugins.languages.vimpio',
+  require 'plugins.languages.zip',
 -- }}}
+
+-- LSP (language server protocol) {{{
+  require 'plugins.lsp.mason',
+  require 'plugins.lsp.lspconfig',
+  require 'plugins.lsp.lint',
+  require 'plugins.lsp.cmp',
+  require 'plugins.lsp.trouble',
+-- }}}
+
 
 -- SEARCH (search engine) {{{
   require 'plugins.search.spectre',
@@ -48,14 +57,12 @@ return {
 -- }}}
 
 -- UI {{{
-  require 'plugins.ui.avante',
   require 'plugins.ui.feline',
   require 'plugins.ui.lspkind',
   require 'plugins.ui.neotree',
   require 'plugins.ui.noice',
   require 'plugins.ui.project',
   require 'plugins.ui.telescope',
-  require 'plugins.ui.trouble',
 -- }}}
 }
 

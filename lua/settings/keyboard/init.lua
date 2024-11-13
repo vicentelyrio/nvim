@@ -46,6 +46,7 @@ local codeCommands = {
   { 'n', keys.code.move_line_down, '<cmd>MoveLine(1)<CR>' },
   { 'v', keys.code.move_line_up, '<cmd>MoveBlock(-1)<CR>' },
   { 'v', keys.code.move_line_down, '<cmd>MoveBlock(1)<CR>' },
+  -- { 'v', keys.code.join, '<cmd>TSJToggle<CR>' },
 }
 
 local uiCommands = {

@@ -74,6 +74,7 @@ return {
   },
   code = {
     paste = 'p',
+    -- join = '<leader>jj',
     indent_back = '<',
     indent_forward = '>',
     move_word_back = '<leader>wb',
@@ -129,7 +130,7 @@ return {
     spectre_find_file = '<leader>sf',
   },
   git = {
-    status = 'gs',
+    status = '<leader>fg',
   },
   -- [[ Contextual Keybinds ]]
   trouble = {
@@ -155,8 +156,8 @@ return {
     help = '?', -- help menu
   },
   ts = {
-    toggle = 'ge',
-    go_to_definition = 'gr',
+    toggle = 'te',
+    go_to_definition = 'td',
   }
 }
 

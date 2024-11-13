@@ -30,3 +30,4 @@ vim.cmd([[
     autocmd BufEnter * silent! let &autochdir = v:false | execute 'cd ' .. getcwd()
   augroup END
 ]])
+
