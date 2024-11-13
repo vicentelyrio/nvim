@@ -1,6 +1,6 @@
 return {
   'onsails/lspkind-nvim',
-  lazy = true,
+  event = 'VeryLazy',
   config = function()
     local lspk = require('lspkind')
 

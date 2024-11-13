@@ -1,22 +1,31 @@
 return {
--- UI {{{
-  require 'plugins.ui.avante',
-  require 'plugins.ui.bufdelete',
-  require 'plugins.ui.blankline',
-  require 'plugins.ui.catppuccin',
-  require 'plugins.ui.cokeline',
-  require 'plugins.ui.cybu',
-  require 'plugins.ui.feline',
-  require 'plugins.ui.lspkind',
-  require 'plugins.ui.neotree',
-  require 'plugins.ui.noice',
-  require 'plugins.ui.project',
-  require 'plugins.ui.scrollbar',
-  require 'plugins.ui.smartsplits',
-  require 'plugins.ui.spectre',
-  require 'plugins.ui.supermaven',
-  require 'plugins.ui.telescope',
-  require 'plugins.ui.zip',
+-- BUFFER (buffer control) {{{
+  require 'plugins.buffer.cokeline',
+  require 'plugins.buffer.bufdelete',
+  require 'plugins.buffer.cybu',
+-- }}}
+
+-- CODE (code editing improvements) {{{
+  require 'plugins.code.blankline',
+  require 'plugins.code.colorizer',
+  require 'plugins.code.comment',
+  require 'plugins.code.scrollbar',
+  require 'plugins.code.smartsplits',
+  require 'plugins.code.move',
+  require 'plugins.code.todo',
+  require 'plugins.code.ufo',
+  require 'plugins.code.visual-multi',
+  require 'plugins.code.zip',
+-- }}}
+
+-- COMPLETION {{{
+  require 'plugins.completion.supermaven',
+  require 'plugins.code.cmp',
+  -- require 'plugins.code.dadbot',
+  -- require 'plugins.code.mason',
+  -- require 'plugins.code.none-ls',
+  -- require 'plugins.code.treesitter',
+  -- require 'plugins.code.treesitter-textobjects',
 -- }}}
 
 -- GIT {{{
@@ -25,22 +34,28 @@ return {
   require 'plugins.git.wakatime',
 -- }}}
 
--- CODE {{{
-  require 'plugins.code.better-ts-errors',
-  require 'plugins.code.cmp',
-  require 'plugins.code.comment',
-  require 'plugins.code.colorizer',
-  require 'plugins.code.dadbot',
-  require 'plugins.code.mason',
-  require 'plugins.code.move',
-  require 'plugins.code.none-ls',
-  require 'plugins.code.todo',
-  require 'plugins.code.treesitter',
-  require 'plugins.code.treesitter-textobjects',
-  require 'plugins.code.trouble',
-  require 'plugins.code.ufo',
-  require 'plugins.code.vimpio',
-  require 'plugins.code.visual-multi',
+-- LANGUAGES (language support) {{{
+  require 'plugins.languages.better-ts-errors',
+  require 'plugins.languages.vimpio',
+-- }}}
+
+-- SEARCH (search engine) {{{
+  require 'plugins.search.spectre',
+-- }}}
+
+-- THEME {{{
+  require 'plugins.theme.catppuccin',
+-- }}}
+
+-- UI {{{
+  require 'plugins.ui.avante',
+  require 'plugins.ui.feline',
+  require 'plugins.ui.lspkind',
+  require 'plugins.ui.neotree',
+  require 'plugins.ui.noice',
+  require 'plugins.ui.project',
+  require 'plugins.ui.telescope',
+  require 'plugins.ui.trouble',
 -- }}}
 }
 

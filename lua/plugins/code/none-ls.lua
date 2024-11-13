@@ -2,7 +2,7 @@
 -- see https://github.com/nvimtools/none-ls.nvim
 return {
   'nvimtools/none-ls.nvim',
-  lazy = false,
+  event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },

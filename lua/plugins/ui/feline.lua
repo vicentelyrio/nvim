@@ -1,6 +1,8 @@
+-- cokeline.nvim
+-- see https://github.com/famiu/feline.nvim
 return {
   'freddiehaddad/feline.nvim',
-  lazy = false,
+  event = 'VeryLazy',
   config = function ()
     local feline = require('feline')
 

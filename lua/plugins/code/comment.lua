@@ -2,7 +2,7 @@
 -- see https://github.com/numToStr/Comment.nvim
 return {
   'numToStr/Comment.nvim',
-  event = "VeryLazy",
+  event = 'VeryLazy',
   dependencies = {
     'JoosepAlviste/nvim-ts-context-commentstring'
   },

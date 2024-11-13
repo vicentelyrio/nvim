@@ -1,6 +1,6 @@
 return {
   'ghillb/cybu.nvim',
-  lazy = false,
+  event = 'VeryLazy',
   config = function ()
     require('cybu').setup()
   end

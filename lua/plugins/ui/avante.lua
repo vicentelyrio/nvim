@@ -2,7 +2,7 @@
 -- see https://github.com/yetone/avante.nvim
 return {
   "yetone/avante.nvim",
-  event = "VeryLazy",
+  event = 'VeryLazy',
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- add any opts here

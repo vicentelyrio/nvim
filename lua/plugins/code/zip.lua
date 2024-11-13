@@ -1,4 +1,4 @@
 return {
   'lbrayner/vim-rzip',
-  event = "VeryLazy",
+  event = 'VeryLazy',
 }
