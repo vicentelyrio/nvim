@@ -20,7 +20,7 @@ return {
 
 -- COMPLETION {{{
   require 'plugins.completion.supermaven',
-  require 'plugins.code.cmp',
+  -- require 'plugins.completion.cmp',
   -- require 'plugins.code.dadbot',
   -- require 'plugins.code.mason',
   -- require 'plugins.code.none-ls',
