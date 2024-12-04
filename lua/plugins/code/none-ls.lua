@@ -23,7 +23,7 @@ return {
         diagnostics.actionlint,
         diagnostics.ansiblelint,
         diagnostics.checkmake,
-        diagnostics.codespell,
+        -- diagnostics.codespell,
         diagnostics.cppcheck,
         diagnostics.dotenv_linter,
         diagnostics.editorconfig_checker,

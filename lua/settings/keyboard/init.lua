@@ -51,6 +51,7 @@ local codeCommands = {
 local uiCommands = {
   { 'n', keys.ui.file_explorer, '<cmd>Neotree toggle<CR>' },
   { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
+  { 'n', keys.ui.notifi_dismiss, '<cmd>NoiceDismiss<CR>' },
 }
 
 -- A helper function to find the project root

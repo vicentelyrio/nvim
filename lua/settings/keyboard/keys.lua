@@ -116,6 +116,7 @@ return {
     split_horizontal = '<leader>-'
   },
   ui = {
+    notifi_dismiss = '<leader>q',
     file_explorer = '<leader>e',
     colorscheme = '<leader>fc',
   },
