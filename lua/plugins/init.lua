@@ -32,6 +32,7 @@ return {
   require 'plugins.code.colorizer',
   require 'plugins.code.dadbot',
   require 'plugins.code.mason',
+  require 'plugins.code.mdx',
   require 'plugins.code.move',
   require 'plugins.code.none-ls',
   require 'plugins.code.todo',
