@@ -1,3 +1,5 @@
+-- lsp manager
+-- see https://github.com/williamboman/mason.nvim
 return {
   'williamboman/mason.nvim',
   build = ':MasonUpdate',
@@ -18,7 +20,6 @@ return {
       'html',
       'jsonls',
       'lua_ls',
-      'ts_ls',
     }
 
     mason.setup()

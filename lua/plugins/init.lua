@@ -1,5 +1,6 @@
 return {
 -- UI {{{
+  require 'plugins.ui.avante',
   require 'plugins.ui.bufdelete',
   require 'plugins.ui.blankline',
   require 'plugins.ui.catppuccin',
@@ -8,6 +9,7 @@ return {
   require 'plugins.ui.feline',
   require 'plugins.ui.lspkind',
   require 'plugins.ui.neotree',
+  require 'plugins.ui.noice',
   require 'plugins.ui.project',
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
@@ -28,13 +30,11 @@ return {
   require 'plugins.code.cmp',
   require 'plugins.code.comment',
   require 'plugins.code.colorizer',
-  require 'plugins.code.hlslens',
-  require 'plugins.code.hyper',
+  require 'plugins.code.dadbot',
   require 'plugins.code.mason',
-  require 'plugins.code.mini',
+  require 'plugins.code.mdx',
   require 'plugins.code.move',
---  require 'plugins.code.neodim',
-  require 'plugins.code.null-ls',
+  require 'plugins.code.none-ls',
   require 'plugins.code.todo',
   require 'plugins.code.treesitter',
   require 'plugins.code.treesitter-textobjects',
@@ -42,7 +42,6 @@ return {
   require 'plugins.code.ufo',
   require 'plugins.code.vimpio',
   require 'plugins.code.visual-multi',
-  require 'plugins.code.yuck',
 -- }}}
 }
 

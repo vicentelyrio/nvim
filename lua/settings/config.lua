@@ -72,7 +72,7 @@ opt.fileencoding = 'utf-8'  -- the encoding written to a file
 opt.scrolloff = 8           -- keep cursor at center
 opt.sidescrolloff = 8
 opt.hidden = true           -- Enable background buffers
-opt.lazyredraw = true       -- Faster scrolling
+opt.lazyredraw = false      -- Faster scrolling
 opt.synmaxcol = 240         -- Max column for syntax highlight
 
 opt.updatetime = 200        -- faster completion (400ms default)

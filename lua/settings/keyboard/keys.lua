@@ -116,6 +116,7 @@ return {
     split_horizontal = '<leader>-'
   },
   ui = {
+    notifi_dismiss = '<leader>q',
     file_explorer = '<leader>e',
     colorscheme = '<leader>fc',
   },
@@ -124,8 +125,6 @@ return {
     find_word = 'fw',
     find_history = 'fh',
     unselect = '<leader>h',
-    next_select = 'n',
-    prev_select = 'N',
     spectre_open = '<leader>S',
     spectre_find_word = '<leader>sw',
     spectre_find_file = '<leader>sf',

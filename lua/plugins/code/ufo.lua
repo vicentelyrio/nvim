@@ -1,6 +1,8 @@
+-- folding enhancer
+-- see https://github.com/kevinhwang91/nvim-ufo
 return {
   'kevinhwang91/nvim-ufo',
-  lazy = false,
+  event = "VeryLazy",
   dependencies = {
     'kevinhwang91/promise-async',
   },

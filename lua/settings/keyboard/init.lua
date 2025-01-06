@@ -17,8 +17,8 @@ vim.g.mapleader = ' '
 local bufferCommands = {
   { 'n', keys.buffers.prev, '<cmd>CybuPrev<CR>'},
   { 'n', keys.buffers.next, '<cmd>CybuNext<CR>'},
-  { 'n', keys.buffers.last_prev, '<cmd>CybuLastusedPrev<CR>'},
-  { 'n', keys.buffers.last_next, '<cmd>CybuLastusedNext<CR>'},
+  { 'n', keys.buffers.last_prev, '<cmd>CybuPrev<CR>'},
+  { 'n', keys.buffers.last_next, '<cmd>CybuNext<CR>'},
   { 'n', keys.buffers.list, '<cmd>Telescope buffers<CR>'},
   { 'n', keys.buffers.close, '<cmd>Bdelete<CR>'},
   { 'n', keys.buffers.save, '<cmd>w<CR>'},
@@ -51,6 +51,7 @@ local codeCommands = {
 local uiCommands = {
   { 'n', keys.ui.file_explorer, '<cmd>Neotree toggle<CR>' },
   { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
+  { 'n', keys.ui.notifi_dismiss, '<cmd>NoiceDismiss<CR>' },
 }
 
 -- A helper function to find the project root
@@ -64,14 +65,6 @@ local searchCommands = {
   { 'n', keys.search.find_word, ':lua require("telescope.builtin").live_grep({ cwd = Get_project_root() })<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
-  {
-    'n', keys.search.prev_select,
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
-  },
-  {
-    'n', keys.search.next_select,
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
-  },
   {
     'n', keys.search.spectre_open,
     [[<Cmd>lua require("spectre").toggle()<CR>]]
