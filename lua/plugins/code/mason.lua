@@ -15,7 +15,6 @@ return {
     local servers = {
       'bashls',
       'cssmodules_ls',
-      'custom_elements_ls',
       'graphql',
       'html',
       'jsonls',
