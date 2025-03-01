@@ -1,10 +1,13 @@
 -- manage lsp diagnostics and code actions
 -- see https://github.com/nvimtools/none-ls.nvim
+
 return {
   'nvimtools/none-ls.nvim',
   lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'none-ls-extras.nvim',
+    'nvimtools/none-ls-extras.nvim'
   },
   config = function()
     local none_ls = require('null-ls')
@@ -20,6 +23,7 @@ return {
 
         formatting.cueimports,
 
+        require('none-ls.diagnostics.eslint'),
         diagnostics.actionlint,
         diagnostics.ansiblelint,
         diagnostics.checkmake,
@@ -33,6 +37,7 @@ return {
         diagnostics.tidy,
         diagnostics.todo_comments,
         diagnostics.trail_space,
+        diagnostics.stylelint,
         diagnostics.trivy,
         diagnostics.yamllint,
         diagnostics.zsh,
