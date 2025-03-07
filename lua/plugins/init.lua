@@ -22,6 +22,7 @@ return {
 -- GIT {{{
   require 'plugins.git.gitsigns',
   require 'plugins.git.gitconflict',
+  require 'plugins.git.gitblame',
   require 'plugins.git.wakatime',
 -- }}}
 
