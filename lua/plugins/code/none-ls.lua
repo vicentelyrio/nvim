@@ -36,7 +36,7 @@ return {
         diagnostics.markdownlint,
         diagnostics.tidy,
         diagnostics.todo_comments,
-        diagnostics.trail_space,
+        -- diagnostics.trail_space,
         diagnostics.stylelint,
         diagnostics.trivy,
         diagnostics.yamllint,
