@@ -13,7 +13,7 @@ return {
     local none_ls = require('null-ls')
     local actions = none_ls.builtins.code_actions
     local formatting = none_ls.builtins.formatting
-    local diagnostics = none_ls.builtins.diagnostics
+    -- local diagnostics = none_ls.builtins.diagnostics
     local hover = none_ls.builtins.hover
 
     none_ls.setup({
@@ -23,24 +23,24 @@ return {
 
         formatting.cueimports,
 
-        require('none-ls.diagnostics.eslint'),
-        diagnostics.actionlint,
-        diagnostics.ansiblelint,
-        diagnostics.checkmake,
+        -- require('none-ls.diagnostics.eslint'),
+        -- diagnostics.actionlint,
+        -- diagnostics.ansiblelint,
+        -- diagnostics.checkmake,
         -- diagnostics.codespell,
-        diagnostics.cppcheck,
-        diagnostics.dotenv_linter,
-        diagnostics.editorconfig_checker,
-        diagnostics.gdlint,
-        diagnostics.hadolint,
-        diagnostics.markdownlint,
-        diagnostics.tidy,
-        diagnostics.todo_comments,
+        -- diagnostics.cppcheck,
+        -- diagnostics.dotenv_linter,
+        -- diagnostics.editorconfig_checker,
+        -- diagnostics.gdlint,
+        -- diagnostics.hadolint,
+        -- diagnostics.markdownlint,
+        -- diagnostics.tidy,
+        -- diagnostics.todo_comments,
         -- diagnostics.trail_space,
-        diagnostics.stylelint,
-        diagnostics.trivy,
-        diagnostics.yamllint,
-        diagnostics.zsh,
+        -- diagnostics.stylelint,
+        -- diagnostics.trivy,
+        -- diagnostics.yamllint,
+        -- diagnostics.zsh,
 
         hover.printenv
       },
