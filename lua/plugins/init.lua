@@ -10,6 +10,7 @@ return {
   require 'plugins.ui.lspkind',
   require 'plugins.ui.neotree',
   require 'plugins.ui.noice',
+  require 'plugins.ui.oil',
   require 'plugins.ui.project',
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
