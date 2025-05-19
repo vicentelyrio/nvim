@@ -1,5 +1,5 @@
 return {
-  'freddiehaddad/feline.nvim',
+  'dexxiez/feline.nvim',
   lazy = false,
   config = function ()
     local feline = require('feline')
