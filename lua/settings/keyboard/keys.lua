@@ -115,6 +115,11 @@ return {
     split_vertical = '<leader>|',
     split_horizontal = '<leader>-'
   },
+  quickfix = {
+    open = '<leader>q',
+    close = '<leader>q',
+    next = '<leader>pp',
+  },
   ui = {
     notifi_dismiss = '<leader>q',
     file_explorer = '<leader>e',

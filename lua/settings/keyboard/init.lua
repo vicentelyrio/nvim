@@ -54,6 +54,12 @@ local uiCommands = {
   { 'n', keys.ui.notifi_dismiss, '<cmd>NoiceDismiss<CR>' },
 }
 
+local quickfixCommands = {
+  { 'n', keys.quickfix.open, '<cmd>copen<CR>' },
+  { 'n', keys.quickfix.close, '<cmd>cclose<CR>' },
+  { 'n', keys.quickfix.next, '<cmd>cnext<CR>' },
+}
+
 -- A helper function to find the project root
 function Get_project_root()
   local util = require('lspconfig.util')
@@ -101,6 +107,7 @@ local lspCommands = {
 
 MapKeys(bufferCommands)
 MapKeys(uiCommands)
+MapKeys(quickfixCommands)
 MapKeys(searchCommands)
 MapKeys(gitCommands)
 MapKeys(lspCommands)
