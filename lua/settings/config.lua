@@ -116,11 +116,5 @@ vim.filetype.add({
     ['%.env%.%w+'] = 'sh',  -- Matches .env.anything
     ['%.env$'] = 'sh',      -- Standard .env files
   },
-  filename = {
-    ['.env.stg'] = 'sh',
-    ['.env.prd'] = 'sh',
-    ['.env.dev'] = 'sh',
-    ['.env.local'] = 'sh',
-  }
 })
 -- }}}

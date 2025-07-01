@@ -116,9 +116,9 @@ return {
     split_horizontal = '<leader>-'
   },
   quickfix = {
-    open = '<leader>q',
-    close = '<leader>q',
-    next = '<leader>pp',
+    open = 'fq',
+    close = 'fq',
+    next = 'fn',
   },
   ui = {
     notifi_dismiss = '<leader>q',
