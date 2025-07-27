@@ -3,10 +3,10 @@
 -- cmd [[set formatoptions-=r formatoptions-=c formatoptions-=o]]
 
 -- Set associating between turned on plugins and filetype
-vim.cmd[[filetype plugin on]]
+-- vim.cmd[[filetype plugin on]]
 
 -- Disable comments on pressing Enter
-vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]]
+-- vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- Highlight yanked {{{
 vim.cmd [[
@@ -24,9 +24,9 @@ vim.cmd [[
 --- }}}
 
 -- Prevent root from changing after it's set
-vim.cmd([[
-  augroup ProjectRootLock
-    autocmd!
-    autocmd BufEnter * silent! let &autochdir = v:false | execute 'cd ' .. getcwd()
-  augroup END
-]])
+-- vim.cmd([[
+--   augroup ProjectRootLock
+--     autocmd!
+--     autocmd BufEnter * silent! let &autochdir = v:false | execute 'cd ' .. getcwd()
+--   augroup END
+-- ]])

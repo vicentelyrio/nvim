@@ -28,25 +28,17 @@ return {
       automatic_installation = true,
     })
 
-    -- mason_lspconfig.setup_handlers {
-    --   function (server_name)
-    --     lspconfig[server_name].setup {}
-    --   end,
-    -- }
 
-    -- -- [[ Load individual languages setup ]]
-    -- local opts = {}
-    --
-    -- for _, server in pairs(servers) do
-    --   server = vim.split(server, '@')[1]
-    --
-    --   local require_ok, conf_opts = pcall(require, 'plugins.code.languages.' .. server)
-    --
-    --   if require_ok then
-    --     opts = vim.tbl_deep_extend('force', conf_opts, opts)
-    --   end
-    --
-    --   lspconfig[server].setup(opts)
-    -- end
+    mason_lspconfig.setup({
+      ensure_installed = servers,
+      automatic_installation = true,
+      handlers = {
+        function (server_name)
+          local server = lspconfig[server_name]
+          local capabilities = require('blick.cmp').get_lsp_capabilities(server.capabilities)
+          server.setup { capabilities = capabilities }
+        end,
+      }
+    })
   end
 }
