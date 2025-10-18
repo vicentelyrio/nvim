@@ -15,28 +15,39 @@ return {
     local servers = {
       'bashls',
       'cssmodules_ls',
-      'graphql',
       'html',
       'jsonls',
       'lua_ls',
+      'ts_ls',  -- Back to standard TypeScript LSP
     }
 
     mason.setup()
 
-    mason_lspconfig.setup({
-      ensure_installed = servers,
-      automatic_installation = true,
-    })
-
+    -- Get capabilities helper function
+    local function get_capabilities()
+      local ok, blink_cmp = pcall(require, 'blink.cmp')
+      if ok then
+        return blink_cmp.get_lsp_capabilities()
+      end
+      return vim.lsp.protocol.make_client_capabilities()
+    end
 
     mason_lspconfig.setup({
       ensure_installed = servers,
       automatic_installation = true,
       handlers = {
         function (server_name)
-          local server = lspconfig[server_name]
-          local capabilities = require('blick.cmp').get_lsp_capabilities(server.capabilities)
-          server.setup { capabilities = capabilities }
+          if server_name == 'cssmodules_ls' then
+            -- Limit cssmodules_ls to only CSS files to avoid conflicts
+            lspconfig.cssmodules_ls.setup({
+              capabilities = get_capabilities(),
+              filetypes = { 'css', 'scss', 'sass' }
+            })
+          else
+            lspconfig[server_name].setup({
+              capabilities = get_capabilities()
+            })
+          end
         end,
       }
     })

@@ -32,7 +32,6 @@ return {
         'gitignore',
         'glsl',
         'go',
-        'graphql',
         'hjson',
         'html',
         'http',
