@@ -81,17 +81,38 @@ return {
     move_line_up = '<M-k>',
     move_line_down = '<M-j>',
   },
-  cmp = {
-    select_prev = '<C-k>',
-    select_next = '<C-j>',
+  blink = {
+    -- Navigation
+    select_prev = '<Up>',
+    select_next = '<Down>',
+    
+    -- Scrolling
     scroll_prev = '<C-b>',
     scroll_next = '<C-f>',
+    
+    -- Completion control
     complete = '<C-Space>',
-    disable = '<C-y>',
-    abort = '<C-e>',
+    show_documentation = '<C-d>',
+    hide = '<C-e>',
+    hide_documentation = '<C-q>',
+    
+    -- Selection
     select = '<CR>',
-    cycle_next = '<Tab>',
-    cycle_prev = '<S-Tab>',
+    
+    -- Snippet navigation
+    snippet_forward = '<Tab>',
+    snippet_backward = '<S-Tab>',
+    
+    -- Alternative navigation (vim-style)
+    alt_select_prev = '<C-p>',
+    alt_select_next = '<C-n>',
+    
+    -- Cancel/abort (using non-conflicting keys)
+    abort = '<C-x>',
+    cancel = '<C-q>',
+    
+    -- Fallback
+    fallback = '<C-l>',
   },
   buffers = {
     list = '<leader>l',
