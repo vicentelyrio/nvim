@@ -9,12 +9,10 @@ return {
   require 'plugins.ui.neotree',
   require 'plugins.ui.noice',
   require 'plugins.ui.oil',
-  -- require 'plugins.ui.project',
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
   require 'plugins.ui.spectre',
   require 'plugins.ui.telescope',
-  -- require 'plugins.ui.zip',
 -- }}}
 
 -- GIT {{{
@@ -25,24 +23,14 @@ return {
 -- }}}
 
 -- CODE {{{
-  -- require 'plugins.code.avante',
-  -- require 'plugins.code.better-ts-errors',
   require 'plugins.code.blink',
-  -- require 'plugins.code.cmp',
-  -- require 'plugins.code.comment',
-  -- require 'plugins.code.colorizer',
-  -- require 'plugins.code.dadbot',
-  -- require 'plugins.code.lspkind',
+  require 'plugins.code.colorizer',
   require 'plugins.code.mason',
-  -- require 'plugins.code.mdx',
-  -- require 'plugins.code.move',
-  -- require 'plugins.code.none-ls',
   require 'plugins.code.supermaven',
-  -- require 'plugins.code.todo',
+  require 'plugins.code.todo',
   require 'plugins.code.treesitter',
   require 'plugins.code.treesitter-textobjects',
   require 'plugins.code.trouble',
-  -- require 'plugins.code.typescript-tools',
   require 'plugins.code.ufo',
   require 'plugins.code.vimpio',
   require 'plugins.code.visual-multi',

@@ -12,6 +12,9 @@ return {
         delay = 1000,
         ignore_whitespace = false,
       },
+      watch_gitdir = {
+        enable = false,
+      },
     })
   end
 }
