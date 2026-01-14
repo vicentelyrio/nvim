@@ -18,7 +18,6 @@ return {
       'html',
       'jsonls',
       'lua_ls',
-      'ts_ls',  -- Back to standard TypeScript LSP
     }
 
     mason.setup()
@@ -37,17 +36,9 @@ return {
       automatic_installation = true,
       handlers = {
         function (server_name)
-          if server_name == 'cssmodules_ls' then
-            -- Limit cssmodules_ls to only CSS files to avoid conflicts
-            lspconfig.cssmodules_ls.setup({
-              capabilities = get_capabilities(),
-              filetypes = { 'css', 'scss', 'sass' }
-            })
-          else
-            lspconfig[server_name].setup({
-              capabilities = get_capabilities()
-            })
-          end
+          lspconfig[server_name].setup({
+            capabilities = get_capabilities()
+          })
         end,
       }
     })
