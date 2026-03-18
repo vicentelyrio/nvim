@@ -26,13 +26,17 @@ return {
   require 'plugins.code.blink',
   require 'plugins.code.colorizer',
   require 'plugins.code.mason',
+  require 'plugins.code.opencode',
+  -- require 'plugins.code.mdx',
+  -- require 'plugins.code.move',
+  -- require 'plugins.code.none-ls',
   require 'plugins.code.supermaven',
   require 'plugins.code.todo',
   require 'plugins.code.treesitter',
   require 'plugins.code.treesitter-textobjects',
   require 'plugins.code.trouble',
   require 'plugins.code.ufo',
-  require 'plugins.code.vimpio',
+  -- require 'plugins.code.vimpio',
   require 'plugins.code.visual-multi',
 -- }}}
 }
