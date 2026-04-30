@@ -1,9 +1,7 @@
 -- Highlight yanked region {{{
--- Uses vim.hl.on_yank (Neovim 0.11+). Previously vim.highlight.on_yank.
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
   callback = function()
-    -- Fallback chain handles 0.10 (vim.highlight) and 0.11+ (vim.hl)
     local hl = vim.hl or vim.highlight
     hl.on_yank({ higroup = 'IncSearch', timeout = 400 })
   end,

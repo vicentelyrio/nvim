@@ -60,13 +60,6 @@ return {
     },
   },
   lsp = {
-    definition_hover = 'K',
-    definition = 'gd',
-    declaration = 'gD',
-    implementation = 'gi',
-    signature = 'gh',
-    references = 'gr',
-    code_action = 'ga',
     workspace_diagnostics = '<leader>xw',
     document_diagnostics = '<leader>xd',
     quickfix = '<leader>xq',
@@ -81,39 +74,6 @@ return {
     move_line_up = '<M-k>',
     move_line_down = '<M-j>',
   },
-  blink = {
-    -- Navigation
-    select_prev = '<Up>',
-    select_next = '<Down>',
-    
-    -- Scrolling
-    scroll_prev = '<C-b>',
-    scroll_next = '<C-f>',
-    
-    -- Completion control
-    complete = '<C-Space>',
-    show_documentation = '<C-d>',
-    hide = '<C-e>',
-    hide_documentation = '<C-q>',
-    
-    -- Selection
-    select = '<CR>',
-    
-    -- Snippet navigation
-    snippet_forward = '<Tab>',
-    snippet_backward = '<S-Tab>',
-    
-    -- Alternative navigation (vim-style)
-    alt_select_prev = '<C-p>',
-    alt_select_next = '<C-n>',
-    
-    -- Cancel/abort (using non-conflicting keys)
-    abort = '<C-x>',
-    cancel = '<C-q>',
-    
-    -- Fallback
-    fallback = '<C-l>',
-  },
   buffers = {
     list = '<leader>l',
     prev = '<S-h>',
@@ -123,7 +83,6 @@ return {
     close = '<leader>c',
     save = '<leader>w',
     new = '<leader>m',
-    rename = '<leader>r',
     history = '<leader>t',
     move_left = '<C-h>',
     move_right = '<C-l>',
@@ -137,33 +96,35 @@ return {
     split_horizontal = '<leader>-'
   },
   quickfix = {
-    open = 'fq',
-    close = 'fq',
-    next = 'fn',
+    open = '<leader>qo',
+    close = '<leader>qc',
+    next = '<leader>qn',
+    prev = '<leader>qp',
   },
   ui = {
-    notifi_dismiss = '<leader>q',
+    notifi_dismiss = '<leader>nd',
     file_explorer = '<leader>e',
     colorscheme = '<leader>fc',
   },
   search = {
-    find_files = 'ff',
-    find_word = 'fw',
-    find_history = 'fh',
+    find_files = '<leader>ff',
+    find_word = '<leader>fw',
+    find_history = '<leader>fh',
+    find_buffers = '<leader>fb',
     unselect = '<leader>h',
     spectre_open = '<leader>S',
     spectre_find_word = '<leader>sw',
     spectre_find_file = '<leader>sf',
   },
   git = {
-    status = 'gs',
+    status = '<leader>gs',
   },
   opencode = {
     ask = '<C-a>',
     select_action = '<C-x>',
     toggle = '<C-.>',
-    add_range = 'go',
-    add_line = 'goo',
+    add_range = '<leader>oa',
+    add_line = '<leader>ol',
     scroll_up = '<S-C-u>',
     scroll_down = '<S-C-d>',
   },
@@ -190,9 +151,4 @@ return {
     next = 'j', -- next item
     help = '?', -- help menu
   },
-  ts = {
-    toggle = 'ge',
-    go_to_definition = 'gr',
-  }
 }
-

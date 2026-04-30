@@ -6,7 +6,7 @@ opt.swapfile = false        -- Don't use swapfile
 opt.backup = false          -- creates a backup file
 opt.writebackup = false     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.history = 1000           -- Remember N lines in history
-opt.autoread = true         -- auto-reload files changed outside of nvim (required by opencode.nvim's reload events)
+opt.autoread = true          -- auto-reload files changed outside of nvim
 -- }}}
 
 -- Tabs {{{
@@ -15,9 +15,6 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.autoindent = true
--- NOTE: smartindent is intentionally OFF.
--- It's a C-style heuristic that breaks `=` for JS/TS/JSX (collapses to column 0).
--- Filetype indent + treesitter indent handle this correctly.
 opt.smartindent = false
 -- }}}
 
@@ -123,6 +120,5 @@ vim.filetype.add({
   },
 })
 
--- Ensure filetype detection + plugin + indent are all on (defaults, but be explicit)
 vim.cmd('filetype plugin indent on')
 -- }}}

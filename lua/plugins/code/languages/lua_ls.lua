@@ -1,16 +1,20 @@
 return {
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
-        globals = { "vim" },
+        globals = { 'vim' },
       },
       workspace = {
+        checkThirdParty = false,
         library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "/lua"] = true,
+          vim.env.VIMRUNTIME .. '/lua',
+          '${3rd}/luv/library',
         },
       },
+      telemetry = { enable = false },
     },
   },
 }
-

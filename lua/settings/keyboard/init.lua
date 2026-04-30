@@ -58,9 +58,9 @@ local quickfixCommands = {
   { 'n', keys.quickfix.open, '<cmd>copen<CR>' },
   { 'n', keys.quickfix.close, '<cmd>cclose<CR>' },
   { 'n', keys.quickfix.next, '<cmd>cnext<CR>' },
+  { 'n', keys.quickfix.prev, '<cmd>cprev<CR>' },
 }
 
--- A helper function to find the project root
 function Get_project_root()
   local util = require('lspconfig.util')
   return util.root_pattern('.git', 'package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
@@ -70,6 +70,7 @@ local searchCommands = {
   { 'n', keys.search.find_files, ':lua require("telescope.builtin").find_files({ cwd = Get_project_root(), hidden = true })<CR>' },
   { 'n', keys.search.find_word, ':lua require("telescope.builtin").live_grep({ cwd = Get_project_root() })<CR>' },
   { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
+  { 'n', keys.search.find_buffers, '<cmd>Telescope buffers<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
   {
     'n', keys.search.spectre_open,
@@ -94,11 +95,6 @@ local gitCommands = {
 }
 
 local lspCommands = {
-  { 'n', keys.lsp.definition, '<cmd>Trouble lsp_definitions<CR>' },
-  { 'n', keys.lsp.definition_hover, '<cmd>lua vim.lsp.buf.hover()<CR>' },
-  { 'n', keys.lsp.declaration, '<cmd>lua vim.lsp.buf.declaration()<CR>' },
-  { 'n', keys.lsp.code_action, '<cmd>lua vim.lsp.buf.code_action()<CR>' },
-  { 'n', keys.lsp.references, '<cmd>Trouble lsp_references<CR>' },
   { 'n', keys.lsp.document_diagnostics, '<cmd>Trouble document_diagnostics<CR>' },
   { 'n', keys.lsp.workspace_diagnostics, '<cmd>Trouble workspace_diagnostics<CR>'},
   { 'n', keys.lsp.quickfix, '<cmd>Trouble quickfix<CR>'},
@@ -112,4 +108,3 @@ MapKeys(searchCommands)
 MapKeys(gitCommands)
 MapKeys(lspCommands)
 MapKeys(codeCommands)
-
