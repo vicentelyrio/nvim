@@ -158,6 +158,15 @@ return {
   git = {
     status = 'gs',
   },
+  opencode = {
+    ask = '<C-a>',
+    select_action = '<C-x>',
+    toggle = '<C-.>',
+    add_range = 'go',
+    add_line = 'goo',
+    scroll_up = '<S-C-u>',
+    scroll_down = '<S-C-d>',
+  },
   -- [[ Contextual Keybinds ]]
   trouble = {
     close = 'q', -- close the list

@@ -1,32 +1,23 @@
--- cmd "set whichwrap+=<,>,[,],h,l"
--- cmd [[set iskeyword+=-]]
--- cmd [[set formatoptions-=r formatoptions-=c formatoptions-=o]]
+-- Highlight yanked region {{{
+-- Uses vim.hl.on_yank (Neovim 0.11+). Previously vim.highlight.on_yank.
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
+  callback = function()
+    -- Fallback chain handles 0.10 (vim.highlight) and 0.11+ (vim.hl)
+    local hl = vim.hl or vim.highlight
+    hl.on_yank({ higroup = 'IncSearch', timeout = 400 })
+  end,
+})
+-- }}}
 
--- Set associating between turned on plugins and filetype
--- vim.cmd[[filetype plugin on]]
-
--- Disable comments on pressing Enter
--- vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]]
-
--- Highlight yanked {{{
-vim.cmd [[
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 400 }
-  augroup END
-]]
---- }}}
-
--- Remove whitespaces on save {{{
-vim.cmd [[
-  autocmd BufWritePre * :%s/\s\+$//e
-]]
---- }}}
-
--- Prevent root from changing after it's set
--- vim.cmd([[
---   augroup ProjectRootLock
---     autocmd!
---     autocmd BufEnter * silent! let &autochdir = v:false | execute 'cd ' .. getcwd()
---   augroup END
--- ]])
+-- Remove trailing whitespace on save {{{
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('trim_trailing_whitespace', { clear = true }),
+  pattern = '*',
+  callback = function()
+    local save = vim.fn.winsaveview()
+    vim.cmd([[silent! keeppatterns %s/\s\+$//e]])
+    vim.fn.winrestview(save)
+  end,
+})
+-- }}}

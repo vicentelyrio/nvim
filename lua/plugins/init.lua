@@ -40,4 +40,3 @@ return {
   require 'plugins.code.visual-multi',
 -- }}}
 }
-

@@ -6,13 +6,19 @@ opt.swapfile = false        -- Don't use swapfile
 opt.backup = false          -- creates a backup file
 opt.writebackup = false     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.history = 1000           -- Remember N lines in history
+opt.autoread = true         -- auto-reload files changed outside of nvim (required by opencode.nvim's reload events)
 -- }}}
 
 -- Tabs {{{
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.tabstop = 2
-opt.smartindent = true
+opt.softtabstop = 2
+opt.autoindent = true
+-- NOTE: smartindent is intentionally OFF.
+-- It's a C-style heuristic that breaks `=` for JS/TS/JSX (collapses to column 0).
+-- Filetype indent + treesitter indent handle this correctly.
+opt.smartindent = false
 -- }}}
 
 -- Clipboard {{{
@@ -75,9 +81,8 @@ opt.hidden = true           -- Enable background buffers
 opt.lazyredraw = false      -- Faster scrolling
 opt.synmaxcol = 240         -- Max column for syntax highlight
 
-opt.updatetime = 200        -- faster completion (400ms default)
+opt.updatetime = 250        -- ms to wait for trigger an event (faster than 400ms default)
 opt.timeoutlen = 600        -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.updatetime = 250        -- ms to wait for trigger an event
 -- }}}
 
 -- Wild Menu {{{
@@ -117,4 +122,7 @@ vim.filetype.add({
     ['%.env$'] = 'sh',      -- Standard .env files
   },
 })
+
+-- Ensure filetype detection + plugin + indent are all on (defaults, but be explicit)
+vim.cmd('filetype plugin indent on')
 -- }}}

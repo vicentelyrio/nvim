@@ -68,7 +68,20 @@ return {
       },
       indent = {
         enable = true,
-        disable = { 'yaml' }
+        -- Disable treesitter indent for filetypes where it's known to be unreliable.
+        -- The built-in filetype indent plugins (runtime/indent/*.vim) handle these
+        -- correctly and `=` will use them as fallback.
+        --   - yaml: indistinguishable nesting levels
+        --   - tsx/jsx/typescriptreact/javascriptreact: known issues with JSX expressions
+        --     where treesitter returns column 0, causing `=` to flatten the line
+        disable = {
+          'yaml',
+          'javascript',
+          'javascriptreact',
+          'typescript',
+          'tsx',
+          'typescriptreact',
+        },
       },
       incremental_selection = {
         enable = true,
