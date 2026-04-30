@@ -1,7 +1,10 @@
+local keys = require('settings.keyboard.keys')
+
 return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = 'v3.x',
-  lazy = false,
+  cmd = 'Neotree',
+  keys = { keys.ui.file_explorer },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',

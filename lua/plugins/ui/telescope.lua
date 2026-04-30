@@ -1,7 +1,19 @@
+local keys = require('settings.keyboard.keys')
+
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.3',
-  lazy = false,
+  version = '0.1.*',
+  cmd = 'Telescope',
+  keys = {
+    keys.search.find_files,
+    keys.search.find_word,
+    keys.search.find_history,
+    keys.search.find_buffers,
+    keys.ui.colorscheme,
+    keys.buffers.list,
+    keys.buffers.history,
+    keys.git.status,
+  },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'ahmedkhalf/project.nvim',
@@ -12,8 +24,6 @@ return {
 
     telescope.setup()
 
-    -- telescope.load_extension('projects')
     telescope.load_extension('zoxide')
-    -- telescope.load_extension('noice')
   end
 }

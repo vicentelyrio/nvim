@@ -13,6 +13,7 @@ return {
   require 'plugins.ui.smartsplits',
   require 'plugins.ui.spectre',
   require 'plugins.ui.telescope',
+  require 'plugins.ui.whichkey',
 -- }}}
 
 -- GIT {{{
@@ -33,7 +34,6 @@ return {
   require 'plugins.code.supermaven',
   require 'plugins.code.todo',
   require 'plugins.code.treesitter',
-  require 'plugins.code.treesitter-textobjects',
   require 'plugins.code.trouble',
   require 'plugins.code.ufo',
   -- require 'plugins.code.vimpio',

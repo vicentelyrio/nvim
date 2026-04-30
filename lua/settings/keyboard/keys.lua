@@ -128,6 +128,9 @@ return {
     scroll_up = '<S-C-u>',
     scroll_down = '<S-C-d>',
   },
+  whichkey = {
+    buffer_local = '<leader>?',
+  },
   -- [[ Contextual Keybinds ]]
   trouble = {
     close = 'q', -- close the list

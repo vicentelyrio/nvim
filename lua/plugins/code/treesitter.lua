@@ -1,7 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   branch = 'master',
-  lazy = false,
   build = ':TSUpdate',
   event = { 'BufReadPost', 'BufNewFile' },
   dependencies = {
@@ -10,7 +9,6 @@ return {
   config = function()
     local treesitter = require('nvim-treesitter.configs')
     local keys = require('settings.keyboard.keys')
-    -- local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
     treesitter.setup {
       ensure_installed = {

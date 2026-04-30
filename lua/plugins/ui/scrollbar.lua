@@ -1,10 +1,9 @@
 -- see https://github.com/petertriho/nvim-scrollbar
 return {
   'petertriho/nvim-scrollbar',
-  lazy = false,
+  event = 'BufReadPost',
   config = function ()
     require('scrollbar').setup()
-    -- require('scrollbar.handlers.search').setup()
     require('scrollbar.handlers.gitsigns').setup()
   end
 }

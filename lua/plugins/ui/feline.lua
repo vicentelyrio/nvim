@@ -1,6 +1,6 @@
 return {
   'dexxiez/feline.nvim',
-  lazy = false,
+  event = 'VimEnter',
   config = function ()
     local feline = require('feline')
 
