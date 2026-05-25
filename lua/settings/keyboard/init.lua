@@ -19,11 +19,11 @@ local bufferCommands = {
   { 'n', keys.buffers.next, '<cmd>CybuNext<CR>'},
   { 'n', keys.buffers.last_prev, '<cmd>CybuPrev<CR>'},
   { 'n', keys.buffers.last_next, '<cmd>CybuNext<CR>'},
-  { 'n', keys.buffers.list, '<cmd>Telescope buffers<CR>'},
+  { 'n', keys.buffers.list, '<cmd>lua Pick_buffer()<CR>'},
   { 'n', keys.buffers.close, '<cmd>Bdelete<CR>'},
   { 'n', keys.buffers.save, '<cmd>w<CR>'},
   { 'n', keys.buffers.new, '<cmd>enew<CR>'},
-  { 'n', keys.buffers.history, '<cmd>Telescope oldfiles<CR>'},
+  { 'n', keys.buffers.history, '<cmd>Tv recent-files<CR>'},
   { 'n', keys.buffers.move_left, '<cmd>SmartCursorMoveLeft<CR>'},
   { 'n', keys.buffers.move_right, '<cmd>SmartCursorMoveRight<CR>'},
   { 'n', keys.buffers.move_up, '<cmd>SmartCursorMoveUp<CR>'},
@@ -50,7 +50,7 @@ local codeCommands = {
 
 local uiCommands = {
   { 'n', keys.ui.file_explorer, '<cmd>Neotree toggle<CR>' },
-  { 'n', keys.ui.colorscheme, '<cmd>Telescope colorscheme<CR>' },
+  -- keys.ui.colorscheme is bound by plugins/ui/tv.lua (vim.ui.select fallback)
   { 'n', keys.ui.notifi_dismiss, '<cmd>NoiceDismiss<CR>' },
 }
 
@@ -66,11 +66,32 @@ function Get_project_root()
   return util.root_pattern('.git', 'package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
 end
 
+-- Native buffer picker (replaces Telescope buffers)
+function Pick_buffer()
+  local bufs = vim.tbl_filter(function(b)
+    return vim.api.nvim_buf_is_loaded(b) and vim.bo[b].buflisted
+  end, vim.api.nvim_list_bufs())
+
+  local items = {}
+  for _, b in ipairs(bufs) do
+    local name = vim.api.nvim_buf_get_name(b)
+    table.insert(items, {
+      bufnr = b,
+      label = (name == '' and '[No Name]' or vim.fn.fnamemodify(name, ':~:.')),
+    })
+  end
+
+  vim.ui.select(items, {
+    prompt = 'Buffers',
+    format_item = function(item) return item.label end,
+  }, function(choice)
+    if choice then vim.api.nvim_set_current_buf(choice.bufnr) end
+  end)
+end
+
 local searchCommands = {
-  { 'n', keys.search.find_files, ':lua require("telescope.builtin").find_files({ cwd = Get_project_root(), hidden = true })<CR>' },
-  { 'n', keys.search.find_word, ':lua require("telescope.builtin").live_grep({ cwd = Get_project_root() })<CR>' },
-  { 'n', keys.search.find_history, '<cmd>Telescope zoxide list<CR>' },
-  { 'n', keys.search.find_buffers, '<cmd>Telescope buffers<CR>' },
+  -- keys.search.find_files, find_word, find_history are bound by plugins/ui/tv.lua
+  { 'n', keys.search.find_buffers, '<cmd>lua Pick_buffer()<CR>' },
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
   {
     'n', keys.search.spectre_open,
@@ -90,9 +111,8 @@ local searchCommands = {
   },
 }
 
-local gitCommands = {
-  { 'n', keys.git.status, '<cmd>Telescope git_status<CR>' },
-}
+-- git keymaps (keys.git.status, keys.git.log) are bound by plugins/ui/tv.lua
+local gitCommands = {}
 
 local lspCommands = {
   { 'n', keys.lsp.document_diagnostics, '<cmd>Trouble document_diagnostics<CR>' },

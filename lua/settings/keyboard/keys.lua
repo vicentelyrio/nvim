@@ -118,6 +118,7 @@ return {
   },
   git = {
     status = '<leader>gs',
+    log = '<leader>gl',
   },
   opencode = {
     ask = '<C-a>',

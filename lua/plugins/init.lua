@@ -12,7 +12,7 @@ return {
   require 'plugins.ui.scrollbar',
   require 'plugins.ui.smartsplits',
   require 'plugins.ui.spectre',
-  require 'plugins.ui.telescope',
+  require 'plugins.ui.tv',
   require 'plugins.ui.whichkey',
 -- }}}
 
