@@ -87,6 +87,96 @@ return {
       },
     })
 
+    -- recent files (replacement for Telescope oldfiles):
+    -- tv's built-in `recent-files` channel reads television's *global* frecency
+    -- db, not Neovim's recent files. And v:oldfiles is only a startup snapshot
+    -- (it never changes mid-session) and is polluted with COMMIT_EDITMSG, temp
+    -- files, etc. So we keep our own session MRU list, updated as you open files,
+    -- and merge it in front of v:oldfiles for the persisted tail.
+    local mru = {}
+    local function should_track(buf)
+      if vim.bo[buf].buftype ~= '' then return false end
+      local name = vim.api.nvim_buf_get_name(buf)
+      if name == '' then return false end
+      if name:match('/%.git/') then return false end
+      return vim.fn.filereadable(name) == 1
+    end
+    vim.api.nvim_create_autocmd({ 'BufWinEnter', 'BufWritePost' }, {
+      group = vim.api.nvim_create_augroup('tv_mru', { clear = true }),
+      callback = function(ev)
+        if not should_track(ev.buf) then return end
+        local full = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ev.buf), ':p')
+        for i, v in ipairs(mru) do
+          if v == full then table.remove(mru, i) break end
+        end
+        table.insert(mru, 1, full) -- most recent first
+      end,
+    })
+
+    vim.keymap.set('n', keys.buffers.history, function()
+      local seen, files = {}, {}
+      local cwd = vim.fn.getcwd()
+      local function add(f)
+        local full = vim.fn.fnamemodify(f, ':p')
+        if seen[full] then return end
+        if full:match('/%.git/') then return end          -- COMMIT_EDITMSG, MERGE_MSG
+        if vim.fn.filereadable(full) ~= 1 then return end  -- missing / oil:// etc.
+        seen[full] = true
+        files[#files + 1] = full
+      end
+
+      for _, f in ipairs(mru) do add(f) end           -- this session, most recent first
+      for _, f in ipairs(vim.v.oldfiles) do add(f) end -- persisted history tail
+
+      if #files == 0 then
+        vim.notify('No recent files', vim.log.levels.INFO, { title = 'tv.nvim' })
+        return
+      end
+
+      local tmp = vim.fn.tempname()
+      vim.fn.writefile(files, tmp)
+
+      local width = math.floor(vim.o.columns * 0.85)
+      local height = math.floor(vim.o.lines * 0.85)
+      local buf = vim.api.nvim_create_buf(false, true)
+      local win = vim.api.nvim_open_win(buf, true, {
+        relative = 'editor',
+        width = width,
+        height = height,
+        row = math.floor((vim.o.lines - height) / 2),
+        col = math.floor((vim.o.columns - width) / 2),
+        border = 'rounded',
+        title = ' recent files ',
+        title_pos = 'center',
+        style = 'minimal',
+      })
+
+      -- use the `files` channel (for its file preview) but override its source
+      -- with our oldfiles list. Strip the cwd prefix so paths render relative.
+      vim.fn.jobstart({
+        'tv', '--no-remote', '--no-status-bar',
+        '--source-command', 'sed "s|^' .. cwd .. '/||" ' .. vim.fn.shellescape(tmp),
+        '--layout', 'landscape',
+        'files',
+      }, {
+        term = true,
+        on_exit = function(_, code)
+          local out = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+          pcall(vim.api.nvim_win_close, win, true)
+          vim.fn.delete(tmp)
+          if code ~= 0 then return end
+          for _, line in ipairs(out) do
+            local sel = vim.fn.trim(line)
+            if sel ~= '' then
+              vim.cmd('edit ' .. vim.fn.fnameescape(sel))
+              return
+            end
+          end
+        end,
+      })
+      vim.cmd('startinsert')
+    end, { noremap = true, silent = true, desc = 'Recent files (oldfiles)' })
+
     -- colorscheme picker fallback (tv has no built-in colorscheme channel)
     vim.keymap.set('n', keys.ui.colorscheme, function()
       local schemes = vim.fn.getcompletion('', 'color')
