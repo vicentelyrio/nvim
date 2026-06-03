@@ -87,12 +87,6 @@ return {
       },
     })
 
-    -- recent files (replacement for Telescope oldfiles):
-    -- tv's built-in `recent-files` channel reads television's *global* frecency
-    -- db, not Neovim's recent files. And v:oldfiles is only a startup snapshot
-    -- (it never changes mid-session) and is polluted with COMMIT_EDITMSG, temp
-    -- files, etc. So we keep our own session MRU list, updated as you open files,
-    -- and merge it in front of v:oldfiles for the persisted tail.
     local mru = {}
     local function should_track(buf)
       if vim.bo[buf].buftype ~= '' then return false end
@@ -109,7 +103,7 @@ return {
         for i, v in ipairs(mru) do
           if v == full then table.remove(mru, i) break end
         end
-        table.insert(mru, 1, full) -- most recent first
+        table.insert(mru, 1, full)
       end,
     })
 
@@ -119,14 +113,14 @@ return {
       local function add(f)
         local full = vim.fn.fnamemodify(f, ':p')
         if seen[full] then return end
-        if full:match('/%.git/') then return end          -- COMMIT_EDITMSG, MERGE_MSG
-        if vim.fn.filereadable(full) ~= 1 then return end  -- missing / oil:// etc.
+        if full:match('/%.git/') then return end
+        if vim.fn.filereadable(full) ~= 1 then return end
         seen[full] = true
         files[#files + 1] = full
       end
 
-      for _, f in ipairs(mru) do add(f) end           -- this session, most recent first
-      for _, f in ipairs(vim.v.oldfiles) do add(f) end -- persisted history tail
+      for _, f in ipairs(mru) do add(f) end
+      for _, f in ipairs(vim.v.oldfiles) do add(f) end
 
       if #files == 0 then
         vim.notify('No recent files', vim.log.levels.INFO, { title = 'tv.nvim' })
@@ -139,6 +133,7 @@ return {
       local width = math.floor(vim.o.columns * 0.85)
       local height = math.floor(vim.o.lines * 0.85)
       local buf = vim.api.nvim_create_buf(false, true)
+      vim.bo[buf].filetype = 'tv'
       local win = vim.api.nvim_open_win(buf, true, {
         relative = 'editor',
         width = width,
@@ -148,30 +143,27 @@ return {
         border = 'rounded',
         title = ' recent files ',
         title_pos = 'center',
-        style = 'minimal',
       })
+      vim.wo[win].spell = false
 
-      -- use the `files` channel (for its file preview) but override its source
-      -- with our oldfiles list. Strip the cwd prefix so paths render relative.
       vim.fn.jobstart({
-        'tv', '--no-remote', '--no-status-bar',
+        'tv', '--no-remote', '--no-status-bar', '--expect', 'enter',
         '--source-command', 'sed "s|^' .. cwd .. '/||" ' .. vim.fn.shellescape(tmp),
         '--layout', 'landscape',
         'files',
       }, {
         term = true,
         on_exit = function(_, code)
-          local out = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-          pcall(vim.api.nvim_win_close, win, true)
+          local out = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+          pcall(vim.api.nvim_win_close, 0, true)
           vim.fn.delete(tmp)
           if code ~= 0 then return end
+          local entries = {}
           for _, line in ipairs(out) do
             local sel = vim.fn.trim(line)
-            if sel ~= '' then
-              vim.cmd('edit ' .. vim.fn.fnameescape(sel))
-              return
-            end
+            if sel ~= '' then entries[#entries + 1] = sel end
           end
+          h.open_as_files(entries, require('tv.config').current)
         end,
       })
       vim.cmd('startinsert')
