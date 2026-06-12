@@ -29,6 +29,9 @@ return {
         },
         -- ripgrep search through file contents
         text = {
+          -- substring (AND'd, space-separated) matching instead of fuzzy,
+          -- so "import useFoo" only matches lines containing both literally
+          args = { '--no-remote', '--no-status-bar', '--exact' },
           keybinding = keys.search.find_word,
           handlers = {
             ['<CR>'] = h.open_at_line,
