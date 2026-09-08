@@ -72,6 +72,9 @@ return {
     document_diagnostics = '<leader>xd',
     quickfix = '<leader>xq',
     loclist = '<leader>xl',
+    document_symbols = 'gO',
+    workspace_symbols = '<leader>ws',
+    toggle_inlay_hints = '<leader>uh',
   },
   code = {
     paste = 'p',
@@ -127,6 +130,8 @@ return {
   git = {
     status = '<leader>gs',
     log = '<leader>gl',
+    branches = '<leader>gb',
+    conflicts = '<leader>gc',
   },
   opencode = {
     ask = '<C-a>',

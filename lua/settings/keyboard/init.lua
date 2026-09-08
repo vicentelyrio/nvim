@@ -66,32 +66,8 @@ function Get_project_root()
   return util.root_pattern('.git', 'package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
 end
 
--- Native buffer picker (replaces Telescope buffers)
-function Pick_buffer()
-  local bufs = vim.tbl_filter(function(b)
-    return vim.api.nvim_buf_is_loaded(b) and vim.bo[b].buflisted
-  end, vim.api.nvim_list_bufs())
-
-  local items = {}
-  for _, b in ipairs(bufs) do
-    local name = vim.api.nvim_buf_get_name(b)
-    table.insert(items, {
-      bufnr = b,
-      label = (name == '' and '[No Name]' or vim.fn.fnamemodify(name, ':~:.')),
-    })
-  end
-
-  vim.ui.select(items, {
-    prompt = 'Buffers',
-    format_item = function(item) return item.label end,
-  }, function(choice)
-    if choice then vim.api.nvim_set_current_buf(choice.bufnr) end
-  end)
-end
-
 local searchCommands = {
-  -- keys.search.find_files, find_word, find_history are bound by plugins/ui/tv.lua
-  { 'n', keys.search.find_buffers, '<cmd>lua Pick_buffer()<CR>' },
+  -- keys.search.find_files, find_word, find_history, find_buffers are bound by plugins/ui/tv.lua
   { 'n', keys.search.unselect, '<cmd>nohlsearch<CR>' },
   {
     'n', keys.search.spectre_open,
