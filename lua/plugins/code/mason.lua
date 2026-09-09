@@ -94,17 +94,8 @@ return {
       },
     })
 
-    -- Inlay hints: on by default, toggle with keys.lsp.toggle_inlay_hints
+    -- Inlay hints: off by default, toggle with keys.lsp.toggle_inlay_hints
     local keys = require('settings.keyboard.keys')
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('lsp_inlay_hints', { clear = true }),
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client:supports_method('textDocument/inlayHint') then
-          vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-        end
-      end,
-    })
     vim.keymap.set('n', keys.lsp.toggle_inlay_hints, function()
       local bufnr = vim.api.nvim_get_current_buf()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
